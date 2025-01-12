@@ -15,14 +15,14 @@ const About = () => {
                     <p className="font-[Fredoka] text-[17px] text-white font-bold text-nowrap">About The Event</p>
                 </div>
                 <div className="font-[Fredoka] text-white text-[28px] lg:text-[32px] text-center lg:text-left font-bold">
-                    <p>TECHX '24 <br />A State Level Intercollegiate Technical Symposium</p>
+                    <p>Hackathon 24 <br />A State Level Intercollegiate Technical Symposium</p>
                 </div>
 
                 <div className="h-[3px] bg-[#118AEF] w-[50%]"></div>
             </div>
             <div>
                 <div>
-                    <p className="font-[Fredoka] text-white text-[16px] leading-8 font-medium text-center lg:text-justify">TechX '24 is the premier inter-college symposium, bringing together the brightest minds in technology, innovation, and creativity. Designed to foster collaboration, competition, and cutting-edge exploration, TechX '24 provides a dynamic platform for students to showcase their technical prowess, exchange groundbreaking ideas, and solve real-world challenges.</p>
+                    <p className="font-[Fredoka] text-white text-[16px] leading-8 font-medium text-center lg:text-justify">The Hackathon at St. Joseph's College was a dynamic event centered around web and mobile app development, designed to inspire creativity and foster innovation among students. This 24-hour competition brought together tech enthusiasts, designers, and developers to collaboratively tackle real-world challenges and create impactful solutions.</p>
                 </div>
             </div>
 

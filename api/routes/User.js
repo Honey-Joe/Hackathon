@@ -79,11 +79,9 @@ userRoutes.post(
 
       if (team) {
         if (team.teamMembers.length + teamMembers.length > 3) {
-          return res
-            .status(400)
-            .json({
-              message: "Adding these members will exceed the limit of 3",
-            });
+          return res.status(400).json({
+            message: "Adding these members will exceed the limit of 3",
+          });
         }
 
         team.teamMembers.push(...teamMembers);
@@ -104,8 +102,20 @@ userRoutes.post(
 );
 
 userRoutes.get(
+  "/member",
+  AsyncHandler(async (req, res) => {
+    try {
+      const user = await User.find();
+      res.json(user);
+    } catch (error) {
+      res.status(400);
+      throw new Error(error);
+    }
+  })
+);
+
+userRoutes.get(
   "/member/:userId",
-  protect,
   AsyncHandler(async (req, res) => {
     const { userId } = req.params;
 
