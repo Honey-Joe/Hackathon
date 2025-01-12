@@ -33,8 +33,9 @@ const Register = () => {
   const navigate = useNavigate();
   const onsubmit = async (data) => {
     try {
-      const response = await axios.post(BASE_URL+"/api/users", data);
+      const response = await axios.post(BASE_URL+"/api/users/", data);
       console.log(response.data);
+      navigate("/login")
     } catch (error) {
       console.log(error);
     }

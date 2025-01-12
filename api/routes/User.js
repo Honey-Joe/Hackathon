@@ -19,6 +19,8 @@ userRoutes.post(
         password: user.password,
         isadmin: user.isadmin,
         createdAt: user.createdAt,
+        contact: user.contact,
+        teamMember: user.teamMember,
         token: generateToken(user.id),
       });
     } else {
@@ -60,33 +62,45 @@ userRoutes.post(
 
 userRoutes.post(
   "/member/:id/team",
+  protect,
   AsyncHandler(async (req, res) => {
     const userId = req.params.id;
-    const { teamMembers } = req.body; // Expecting an array of team members
-  
-    if (!Array.isArray(teamMembers)) {
-      return res.status(400).json({ message: "Invalid data format. 'teamMembers' should be an array." });
+    const { name, email, contact, degree } = req.body; // Extract individual fields
+
+    // Validate that all required fields are present
+    if (!name || !email || !contact || !degree) {
+      return res.status(400).json({
+        message:
+          "Missing required fields. Please provide name, email, contact, and degree.",
+      });
     }
-  
+
     try {
       const user = await User.findById(userId);
       if (!user) {
         return res.status(404).json({ message: "User not found" });
       }
-  
+
       // Ensure no more than 3 team members
-      if (user.teamMember.length + teamMembers.length > 3) {
+      if (user.teamMember.length >= 3) {
         return res.status(400).json({
-          message: `Cannot add more than 3 team members. Current: ${user.teamMember.length}, Adding: ${teamMembers.length}`,
+          message: `Cannot add more than 3 team members. Current: ${user.teamMember.length}`,
         });
       }
-  
-      user.teamMember.push(...teamMembers);
+
+      // Create a team member object from the fields
+      const newTeamMember = { name, email, contact, degree };
+
+      // Add the new team member to the user's team
+      user.teamMember.push(newTeamMember);
       await user.save();
-  
-      res.status(200).json({ message: "Team members added successfully", user });
+
+      res.status(200).json({
+        message: "Team member added successfully",
+        user,
+      });
     } catch (error) {
-      console.error("Error adding team members:", error);
+      console.error("Error adding team member:", error);
       res.status(500).json({ message: "Internal server error", error });
     }
   })
@@ -94,6 +108,7 @@ userRoutes.post(
 
 userRoutes.get(
   "/member",
+  protect,
   AsyncHandler(async (req, res) => {
     try {
       const users = await User.find();
@@ -109,6 +124,7 @@ module.exports = userRoutes;
 
 userRoutes.get(
   "/member/:id",
+  protect,
   AsyncHandler(async (req, res) => {
     try {
       const user = await User.findById(req.params.id).populate("teamMember");

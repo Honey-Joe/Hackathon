@@ -14,12 +14,11 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(BASE_URL+"/api/users/login", data);
-      if(data){
-        localStorage.setItem('token',token)
-        setToken(response.data.token)
-        console.log(response.data);
-        // alert(response.data.message);
-      }
+      setToken(response.data.token);
+      if(response.status===200){
+        localStorage.setItem('token',response.data.token)
+        localStorage.setItem('user',JSON.stringify(response.data))
+        navigate("/profile")      }
     } catch (error) {
       console.error(error.response.data);
       alert("Login failed. Please try again.");
