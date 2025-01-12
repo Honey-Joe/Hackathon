@@ -4,7 +4,6 @@ const AsyncHandler = require("express-async-handler");
 const User = require("../models/User");
 const generateToken = require("../tokenGenerator");
 const protect = require("../Auth/Auth");
-const Team = require("../models/Team");
 
 userRoutes.post(
   "/login",
@@ -60,68 +59,66 @@ userRoutes.post(
 );
 
 userRoutes.post(
-  "/member",
-  protect,
+  "/member/:id/team",
   AsyncHandler(async (req, res) => {
-    const { userId, teamMembers } = req.body;
-
-    if (!userId || !Array.isArray(teamMembers)) {
-      return res.status(400).json({ message: "Invalid request data" });
+    const userId = req.params.id;
+    const { teamMembers } = req.body; // Expecting an array of team members
+  
+    if (!Array.isArray(teamMembers)) {
+      return res.status(400).json({ message: "Invalid data format. 'teamMembers' should be an array." });
     }
-
+  
     try {
       const user = await User.findById(userId);
       if (!user) {
         return res.status(404).json({ message: "User not found" });
       }
-
-      let team = await Team.findOne({ user: userId });
-
-      if (team) {
-        if (team.teamMembers.length + teamMembers.length > 3) {
-          return res
-            .status(400)
-            .json({
-              message: "Adding these members will exceed the limit of 3",
-            });
-        }
-
-        team.teamMembers.push(...teamMembers);
-      } else {
-        team = new Team({ user: userId, teamMembers });
+  
+      // Ensure no more than 3 team members
+      if (user.teamMember.length + teamMembers.length > 3) {
+        return res.status(400).json({
+          message: `Cannot add more than 3 team members. Current: ${user.teamMember.length}, Adding: ${teamMembers.length}`,
+        });
       }
-
-      await team.save();
-
-      res
-        .status(200)
-        .json({ message: "Team members updated successfully", team });
+  
+      user.teamMember.push(...teamMembers);
+      await user.save();
+  
+      res.status(200).json({ message: "Team members added successfully", user });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Internal server error" });
+      console.error("Error adding team members:", error);
+      res.status(500).json({ message: "Internal server error", error });
     }
   })
 );
 
 userRoutes.get(
-  "/member/:userId",
-  protect,
+  "/member",
   AsyncHandler(async (req, res) => {
-    const { userId } = req.params;
-
     try {
-      const team = await Team.findOne({ user: userId }).populate(
-        "user",
-        "name email"
-      );
-      if (!team) {
-        return res.status(404).json({ message: "Team not found" });
-      }
-
-      res.status(200).json(team);
+      const users = await User.find();
+      res.status(200).json(users);
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Internal server error" });
+      console.error("Error fetching users:", error);
+      res.status(500).json({ message: "Internal server error", error });
+    }
+  })
+);
+
+module.exports = userRoutes;
+
+userRoutes.get(
+  "/member/:id",
+  AsyncHandler(async (req, res) => {
+    try {
+      const user = await User.findById(req.params.id).populate("teamMember");
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      res.status(200).json(user);
+    } catch (error) {
+      console.error("Error fetching user by ID:", error);
+      res.status(500).json({ message: "Internal server error", error });
     }
   })
 );

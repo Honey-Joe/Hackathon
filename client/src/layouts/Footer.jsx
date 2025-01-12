@@ -8,15 +8,24 @@ const Footer = () => {
 
           <div className='flex flex-col gap-5 text-white font-[Fredoka]'>
             <div>
-              <p className='text-[24px]'>TechX'24</p>
+              <p className='text-[24px]'>Hackathon</p>
             </div>
             <div>
-              <p>TechX '24 is the premier inter-college symposium, bringing together the brightest minds in technology, innovation, and creativity.</p>
+              <p>The Hackathon at St. Joseph's College was a dynamic event centered around web and mobile app development, designed to inspire creativity and foster innovation among students. This 24-hour competition brought together tech enthusiasts, designers, and developers to collaboratively tackle real-world challenges and create impactful solutions.</p>
             </div>
           </div>
-          <div className='flex  flex-col gap-5 text-white font-[Fredoka] '>
+          <div className='flex items-end  flex-col gap-5 text-white font-[Fredoka] '>
             <div>
               <p className='text-[24px]'>Contact</p>
+            </div>
+            <div>
+              <p>Ajay James - +91 70104 37314</p>
+            </div>
+            <div>
+              <p>Manoj - +91 88258 63892</p>
+            </div>
+            <div>
+              <p>Honey Joe - 6382503265</p>
             </div>
           </div>
 
