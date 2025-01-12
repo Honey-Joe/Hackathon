@@ -1,6 +1,7 @@
 import { Button, Menu, Paragraph, SideSheet } from 'evergreen-ui';
 import { MenuIcon } from 'lucide-react';
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isShown, setIsShown] = useState(false);
@@ -30,7 +31,9 @@ const Navbar = () => {
                 <li>
                   <a href="#venue">Venue</a>
                 </li>
-                <li onClick={() => setIsDialog(true)} className="cursor-pointer">Register</li>
+                <Link to={"/register"}>
+                  <li onClick={() => setIsDialog(true)} className="cursor-pointer" >Register</li>
+                </Link>
               </ul>
             </div>
             <div className="flex justify-end lg:hidden ">
