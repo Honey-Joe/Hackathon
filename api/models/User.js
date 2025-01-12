@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
+const teamMemberSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  contact: { type: String, required: true },
+  degree: { type: String, required: true },
+});
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -9,6 +15,7 @@ const userSchema = new mongoose.Schema(
     college: { type: String, required: true },
     dept: { type: String, required: true },
     contact: { type: String, required: true },
+    teamMember:[teamMemberSchema]
   },
   { timestamps: true }
 );
