@@ -1,0 +1,125 @@
+/* Zoom animation for headings */
+@keyframes zoomInOut {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.zoom-heading {
+    transition: transform 0.4s ease-in-out;
+}
+
+    .zoom-heading:hover {
+        animation: zoomInOut 0.6s ease-in-out;
+    }
+
+/* Fade-in animation for rules */
+.rule {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease-in-out;
+}
+
+/* Sequential delays for rules */
+.rule-1 {
+    transition-delay: 0.2s;
+}
+
+.rule-2 {
+    transition-delay: 0.4s;
+}
+
+.rule-3 {
+    transition-delay: 0.6s;
+}
+
+/* Hover effects on PRELIMS and MAINS sections */
+.prelims:hover .rule, .mains:hover .rule {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Glow effect on hover */
+.hover-effect {
+    transition: all 0.3s ease-in-out;
+    border: 2px solid transparent;
+}
+
+    .hover-effect:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        border-color: #fff;
+    }
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+.pulse {
+    animation: pulse 2s infinite;
+}
+@keyframes bounceDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(10px);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Apply animation to content */
+.bounce-in {
+    animation: bounceDown 1.2s ease-out;
+}
+
+.zoom-heading {
+    transition: transform 0.4s ease-in-out;
+}
+
+    .zoom-heading:hover {
+        animation: zoomInOut 0.6s ease-in-out;
+    }
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.hover-effect {
+    transition: all 0.3s ease-in-out;
+    border: 2px solid transparent;
+}
+
+    .hover-effect:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        border-color: #fff;
+    }
