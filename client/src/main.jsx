@@ -17,7 +17,6 @@ const Applayout = ()=>{
     <>
       <Header></Header>
       <Body></Body>
-      {/* ajfkas */}
       <Footer></Footer>
     </>
   )
