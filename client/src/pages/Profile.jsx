@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from "react-router-dom";
+import Layout from "../layouts/Layout";
 
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -29,7 +30,7 @@ const Profile = () => {
   const token = localStorage.getItem("token")
 
   const onsubmit = async (data) => {
-    console.log(data);
+    setData(data)
     try {
       const response = await axios.post(
         BASE_URL + "/api/users/member/" + user.id + "/team",
@@ -39,109 +40,93 @@ const Profile = () => {
           },
         }
       );
-      console.log(response.data);
-      setData(response.data);
       reset();
+      alert(data.name+" is registerd")
     } catch (error) {
-      console.log(error);
-      alert(error)
+      alert("Sorry Not Registerd")
     }
   };
-  console.log(data);
   return (
     <div>
-      <div>
-      {
-        data.map((e)=>{
-          return(
-            <>
-            {e.name}
-            </>
-          )
-        })
-      }
+      <Layout>
+        <form
+          action=""
+          className="flex flex-col py-[100px] gap-5 min-h-[80vh] items-center bg-blue-950"
+          onSubmit={handleSubmit(onsubmit)}
+        >
+          <div className="flex flex-col gap-3 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg  drop-shadow-2xl">
+            <div className="flex gap-2 flex-col justify-center w-full">
+              <label htmlFor="name" className=" text-black">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id=""
+                className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
+                {...register("name")}
+                required
+              />
+              <p>{errors?.name?.message}</p>
+            </div>
+            <div className="flex gap-2  flex-col justify-center w-full">
+              <label htmlFor="name" className=" text-black">
+                Email
+              </label>
+              <input
+                type="email"
+                name="dept"
+                id=""
+                className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
+                {...register("email")}
+              />
+              <p>{errors?.email?.message}</p>
+            </div>
+            <div className="flex gap-2  flex-col justify-center w-full">
+              <label htmlFor="name" className=" text-black">
+                Department
+              </label>
+              <input
+                type="text"
+                name="dept"
+                id=""
+                className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
+                {...register("degree")}
+              />
+              <p>{errors?.dept?.message}</p>
+            </div>
 
-        <p>{user.email}</p>
-        <p>{user.id}</p>
-        {user.teamMember.map((e) => {
-          return <>{e.email}</>;
-        })}
-      </div>
-      <form
-        action=""
-        className="flex flex-col gap-5 min-h-[80vh] items-center"
-        onSubmit={handleSubmit(onsubmit)}
-      >
-        <div className="flex flex-col gap-3 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg  drop-shadow-2xl">
-          <div className="flex gap-2 flex-col justify-center w-full">
-            <label htmlFor="name" className=" text-black">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id=""
-              className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
-              {...register("name")}
-              required
-            />
-            <p>{errors?.name?.message}</p>
-          </div>
-          <div className="flex gap-2  flex-col justify-center w-full">
-            <label htmlFor="name" className=" text-black">
-              Email
-            </label>
-            <input
-              type="email"
-              name="dept"
-              id=""
-              className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
-              {...register("email")}
-            />
-            <p>{errors?.email?.message}</p>
-          </div>
-          <div className="flex gap-2  flex-col justify-center w-full">
-            <label htmlFor="name" className=" text-black">
-              Department
-            </label>
-            <input
-              type="text"
-              name="dept"
-              id=""
-              className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
-              {...register("degree")}
-            />
-            <p>{errors?.dept?.message}</p>
-          </div>
+            <div className="flex gap-2  flex-col justify-center w-full">
+              <label htmlFor="name" className=" text-black">
+                Contact
+              </label>
+              <input
+                type="text"
+                name="contact"
+                id=""
+                className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
+                {...register("contact")}
+              />
+              <p>{errors?.contact?.message}</p>
+            </div>
 
-          <div className="flex gap-2  flex-col justify-center w-full">
-            <label htmlFor="name" className=" text-black">
-              Contact
-            </label>
-            <input
-              type="text"
-              name="contact"
-              id=""
-              className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
-              {...register("contact")}
-            />
-            <p>{errors?.contact?.message}</p>
-          </div>
+            <div className=" w-full">
+              <button
+                type="submit"
+                className=" bg-blue-800 w-full text-black py-2 rounded-md text-base"
+              >
+                Submit
+              </button>
+            </div>
 
-          <div className=" w-full">
-            <button
-              type="submit"
-              className=" bg-blue-800 w-full text-black py-2 rounded-md text-base"
-            >
-              Submit
-            </button>
-          </div>
+            <Link to={"/login"}>
+              <p className=" text-black font-bold">Click here to Login </p>
+            </Link>
 
-          <Link to={"/login"}>
-            <p className=" text-black font-bold">Click here to Login </p>
-          </Link>
-        </div>
-      </form>
+            <Link to={"/profile/team"} className="text-black">Click here to see the registerd team</Link>
+          </div>
+        </form>
+      </Layout>
     </div>
   );
 };

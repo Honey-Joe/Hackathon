@@ -5,31 +5,40 @@ import { BASE_URL } from "../BASE_URL";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-
   const [token, setToken] = useState();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(BASE_URL+"/api/users/login", data);
+      const response = await axios.post(BASE_URL + "/api/users/login", data);
       setToken(response.data.token);
-      if(response.status===200){
-        localStorage.setItem('token',response.data.token)
-        localStorage.setItem('user',JSON.stringify(response.data))
-        navigate("/profile")      }
+      if (response.status === 200) {
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("user", JSON.stringify(response.data));
+      }
+      if (response.data.email == "admin@mail.sjctni.edu") {
+        navigate("/admin/member");
+      } else {
+        navigate("/profile");
+      }
+      
     } catch (error) {
       console.error(error.response.data);
       alert("Login failed. Please try again.");
     }
   };
 
-  useEffect(()=>{
-    if(token){
-      navigate('/profile')
+  useEffect(() => {
+    if (token) {
+      navigate("/profile");
     }
-  },[token])
+  }, [token]);
 
   return (
     <div style={styles.container}>
@@ -54,11 +63,17 @@ const Login = () => {
             })}
             className=" w-full py-2 border m-1 rounded-lg"
           />
-          {errors.password && <p style={styles.error}>{errors.password.message}</p>}
+          {errors.password && (
+            <p style={styles.error}>{errors.password.message}</p>
+          )}
         </div>
-        <button type="submit" style={styles.button}>Login</button>
+        <button type="submit" style={styles.button}>
+          Login
+        </button>
         <Link to={"/register"}>
-            <p className=" text-start text-sm underline">Clink here to register</p>
+          <p className=" text-start text-sm underline">
+            Clink here to register
+          </p>
         </Link>
       </form>
     </div>
@@ -77,7 +92,13 @@ const styles = {
   form: { display: "flex", flexDirection: "column", gap: "15px" },
   inputGroup: { textAlign: "left" },
   error: { color: "red", fontSize: "0.8em" },
-  button: { padding: "10px", backgroundColor: "#007BFF", color: "#fff", border: "none", cursor: "pointer" },
+  button: {
+    padding: "10px",
+    backgroundColor: "#007BFF",
+    color: "#fff",
+    border: "none",
+    cursor: "pointer",
+  },
 };
 
 export default Login;

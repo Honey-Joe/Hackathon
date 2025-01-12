@@ -17,7 +17,7 @@ const App = () => {
             <Route path='/register' element={<Register></Register>}></Route>
             <Route path='/login' element={<Login></Login>}></Route>
             <Route path='/admin/member' element={<Admin></Admin>} />
-            <Route path='/member/:userId' element={<Team></Team>} />
+            <Route path='/profile/team' element={<Team></Team>} />
             <Route path='/profile' element={auth?<Profile></Profile>:<Navigate to={"/"}></Navigate>}></Route>
         </Routes>
       </Router>

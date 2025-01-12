@@ -6,12 +6,16 @@ import { BASE_URL } from '../BASE_URL';
 
 const Admin = () => {
     const [data,setData] = useState([]);
+    const token = localStorage.getItem("token")
     const fetchdata = async()=>{
-        const res = await axios.get(BASE_URL+"/api/users/member");
+        const res = await axios.get(BASE_URL+"/api/users/member",{
+            headers:{
+                Authorization: "Bearer "+token,
+            }
+        });
         setData(res.data);
         console.log(res.data);
     }
-
     useEffect(()=>{
         fetchdata();
     },[1])
