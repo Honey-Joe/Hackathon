@@ -9,7 +9,6 @@ import Team from './pages/Team'
 import AdminTeam from './pages/AdminTeam'
 
 const App = () => {
-  const auth = localStorage.getItem("token");
   return (
     <div>
       <Router>
@@ -17,10 +16,10 @@ const App = () => {
             <Route path='/' element={<Home></Home>}></Route>
             <Route path='/register' element={<Register></Register>}></Route>
             <Route path='/login' element={<Login></Login>}></Route>
-            <Route path='/admin' element={auth?<Admin></Admin>:<Navigate to={"/"}></Navigate>}></Route>
+            <Route path='/admin' element={<Admin></Admin>}></Route>
             <Route path='/profile/team' element={<Team></Team>} />
             <Route path='/admin/:id' element={<AdminTeam></AdminTeam>} />
-            <Route path='/profile' element={auth?<Profile></Profile>:<Navigate to={"/"}></Navigate>}></Route>
+            <Route path='/profile' element={<Profile></Profile>}></Route>
         </Routes>
       </Router>
     </div>

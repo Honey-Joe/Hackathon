@@ -42,6 +42,8 @@ const Profile = () => {
         }
       );
       setData(response.data)
+      alert("Registered")
+      reset();
     } catch (error) {
       setError(error.response.data.message)
     }
@@ -125,7 +127,7 @@ const Profile = () => {
               </button>
             </div>
             <div>
-              {error ? (<><p className="text-white font-[Fredoka] text-nowrap">{error}</p></>): (<><p className={data.name==undefined?("hidden"):("text-white font-[Fredoka] block")}>{data.name+" is registered !"}</p></>)}
+              {error ? (<><p className="text-white font-[Fredoka] text-nowrap">{error}</p></>): (<><p className={data.name===undefined?("hidden"):("text-white font-[Fredoka] block")}>{data.name+" is registered !"}</p></>)}
               
             </div>
 
