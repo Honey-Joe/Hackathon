@@ -93,12 +93,20 @@ const Navbar = () => {
                   <a href="#schedule">Schedule</a>
                 </li>
                 {user ? (
-                  <>
-                    <Link to={"/profile"}>Your Profile</Link>
-                  </>
-                ) : (
-                  <></>
-                )}
+                <>
+                  {userJson.email === "admin@mail.sjctni.edu" ? (
+                    <>
+                      <Link to={"/admin"}>Admin</Link>
+                    </>
+                  ) : (
+                    <>
+                      <Link to={"/profile"}>Your profile</Link>
+                    </>
+                  )}
+                </>
+              ) : (
+                <></>
+              )}
                 {user ? (
                   <>
                     <button onClick={handleLogout}>Logout</button>

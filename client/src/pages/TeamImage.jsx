@@ -23,8 +23,8 @@ function DisplayPaymentImage({ userId }) {
   }, [userId]);
 
   return (
-    <div>
-      {imageSrc ? <img src={imageSrc} alt="Payment" style={{ width: '300px' }} /> : <p>Loading...</p>}
+    <div className='mb-[200px]'>
+      {imageSrc ? <img src={imageSrc} alt="Payment" className='w-[200px] h-[200px]' /> : <p>Loading...</p>}
     </div>
   );
 }

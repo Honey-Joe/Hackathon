@@ -30,15 +30,15 @@ const Admin = () => {
       <Layout>
         <div>
           <div className="w-[90%] lg:w-[65%] mx-auto grid grid-cols-1 h-screen ">
-            <div className="py-[120px]">
+            <div className="py-[120px] flex flex-col gap-6">
               <p className="font-[Fredoka] text-white text-2xl">
                 Hi {user.name} !
               </p>
               <div>
-                <p>Total Participants : {memberlength - 1}</p>
+                <p className="text-white font-[Fredoka] text-lg">Total Participants : {memberlength - 1}</p>
               </div>
               <div>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                   {data.map((e) => {
                     return (
                       <>
