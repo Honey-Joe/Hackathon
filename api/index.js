@@ -9,7 +9,9 @@ dotenv.config();
 app.use(bodyParser.json())
 app.use(express.json());
 app.use(cors());
-
+app.get("/",(req,res)=>{
+    res.send("hi")
+})
 mongoose.connect(process.env.MONGO_URL).then(()=>console.log("DB connected"));
 
 app.use("/api/users", userRoutes);
