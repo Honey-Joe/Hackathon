@@ -1,10 +1,16 @@
 {
-    "version": 2,
-    "builds": [
+  "version": 2,
+  "name": "hackathon-25",
+  "builds": [
       {
-        "src": "index.js",
-        "use": "@vercel/node"
+          "src": "index.js",
+          "use": "@vercel/node"
       }
-    ]
-  }
-  
+  ],
+  "routes": [
+      {
+          "src": "/(.*)",
+          "dest": "/index.js"
+      }
+  ]
+}
