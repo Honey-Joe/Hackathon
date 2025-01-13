@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isShown, setIsShown] = useState(false);
   const [isDialog, setIsDialog] = useState(false);
   const user = localStorage.getItem("user");
+  const userJson = JSON.parse(localStorage.getItem("user"));
   const handleLogout = () => {
     localStorage.clear();
     navigate("/login");
@@ -36,18 +37,35 @@ const Navbar = () => {
             <li>
               <a href="#schedule">Schedule</a>
             </li>
+
             <li>
-              <a href="#venue">Venue</a>
+              {user ? (
+                <>
+                  {userJson.email === "admin@mail.sjctni.edu" ? (
+                    <>
+                      <Link to={"/admin"}>Admin</Link>
+                    </>
+                  ) : (
+                    <>
+                      <Link to={"/profile"}>Your profile</Link>
+                    </>
+                  )}
+                </>
+              ) : (
+                <></>
+              )}
             </li>
-            {user ? (
-              <>
-                <button onClick={handleLogout}>Logout</button>
-              </>
-            ) : (
-              <>
-                <Link to={"/register"}>Register</Link>
-              </>
-            )}
+            <li>
+              {user ? (
+                <>
+                  <button onClick={handleLogout}>Logout</button>
+                </>
+              ) : (
+                <>
+                  <Link to={"/register"}>Register</Link>
+                </>
+              )}
+            </li>
           </ul>
         </div>
         <div className="flex justify-end lg:hidden ">

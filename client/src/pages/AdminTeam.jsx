@@ -1,45 +1,50 @@
-import React, { useEffect, useState } from "react";
-import Layout from "../layouts/Layout";
-import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../BASE_URL";
+import { useParams } from "react-router-dom";
+import Layout from "../layouts/Layout";
 import DisplayPaymentImage from "./TeamImage";
 
-const Admin = () => {
-  const [data, setData] = useState([]);
-  const memberlength = data.length;
-  const [imageSrc, setImageSrc] = useState(null);
+const AdminTeam = () => {
+  const id = useParams();
   const token = localStorage.getItem("token");
-  const user = JSON.parse(localStorage.getItem("user"));
+  const [imageSrc, setImageSrc] = useState(null);
+
+  const [data, setData] = useState([]);
   const fetchdata = async () => {
-    const res = await axios.get(BASE_URL + "/api/users/member", {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
-    
-    setData(res.data);
-    console.log(res.data);
+    try {
+      const response = await axios.get(
+        BASE_URL + "/api/users/member/" + id.id,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     
     fetchdata();
+
   }, [1]);
+  
   return (
     <div className="bg-blue-950">
       <Layout>
         <div>
+          {}
           <div className="w-[90%] lg:w-[65%] mx-auto grid grid-cols-1 h-screen ">
-            <div className="py-[120px]">
+            <div className="py-[120px] flex flex-col gap-5">
               <p className="font-[Fredoka] text-white text-2xl">
-                Hi {user.name} !
+                {data.name}'s Team !
               </p>
-              <div>
-                <p>Total Participants : {memberlength - 1}</p>
-              </div>
-              <div>
+              <div className="flex flex-col gap-10">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-                  {data.map((e) => {
+                  {data.teamMember?.map((e) => {
                     return (
                       <>
                         <div
@@ -57,29 +62,19 @@ const Admin = () => {
                             <p>Email:</p>
                             {e.email}
                           </div>
-                          <div className="flex justify-evenly gap-5">
-                            <p>College:</p>
-                            {e.college}
-                          </div>
-                          <div className="flex justify-evenly gap-5">
-                            <p>Department:</p>
-                            {e.dept}
-                          </div>
+
                           <div className="flex justify-evenly gap-5">
                             <p>Contact:</p>
                             {e.contact}
-                          </div>
-                          <div className="flex justify-evenly gap-5">
-                            <p>Payment</p>
-                            {e.payment?.image?.data ? <>Paid</> : <>Not paid</>}
-                          </div>
-                          <div className="flex justify-center w-full">
-                            <Link to={"/admin/" + e._id}><button className="bg-black px-5 py-2 rounded-lg text-white font-[Fredoka]">Team Details</button></Link>
                           </div>
                         </div>
                       </>
                     );
                   })}
+                </div>
+                <div className="flex justify-center gap-5 flex-col items-center">
+                  <h2 className="font-[Fredoka] text-white ">Payment Image</h2>
+                    <DisplayPaymentImage userId={data._id}></DisplayPaymentImage>
                 </div>
               </div>
             </div>
@@ -90,4 +85,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminTeam;

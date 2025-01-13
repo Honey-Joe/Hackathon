@@ -1,1 +1,0 @@
-const mongoURI = "mongodb+srv://honeyjoe942:6Ju23iJUBkThBs3n@hackathon.jm9ck.mongodb.net/"

@@ -26,7 +26,7 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(response.data));
       }
       if (response.data.email == "admin@mail.sjctni.edu") {
-        navigate("/admin/member");
+        navigate("/admin");
       } else {
         navigate("/profile");
       }

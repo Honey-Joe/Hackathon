@@ -29,7 +29,7 @@ const Team = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/users/member/${user.id}/payment`,
+        BASE_URL+`/api/users/member/${user.id}/payment`,
         formData,
         {
           headers: {
