@@ -8,7 +8,7 @@ import Admin from './pages/Admin'
 import Team from './pages/Team'
 
 const App = () => {
-  const auth = !!localStorage.getItem("token");
+  const auth = localStorage.getItem("token");
   return (
     <div>
       <Router>

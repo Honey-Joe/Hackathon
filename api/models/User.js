@@ -15,7 +15,11 @@ const userSchema = new mongoose.Schema(
     college: { type: String, required: true },
     dept: { type: String, required: true },
     contact: { type: String, required: true },
-    teamMember:[teamMemberSchema]
+    teamMember:[teamMemberSchema],
+    payment:{image:{
+      data:Buffer,
+      contentType:String
+    }}
   },
   { timestamps: true }
 );

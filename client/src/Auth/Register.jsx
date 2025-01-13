@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { BASE_URL } from "../BASE_URL";
 import Navbar from "../layouts/Navbar";
+import Layout from "../layouts/Layout";
 
 const Register = () => {
   const schema = z.object({
@@ -41,16 +42,19 @@ const Register = () => {
   };
 
   return (
-    <div class="w-full h-screen bg-[url(https://ik.imagekit.io/HoneyJoe/Hackathon/army-robots-with-leader.jpg?updatedAt=1736657931131)] bg-cover bg-center z-0">
-      {/* <Navbar/>  */}
-      <div class="absolute inset-0 bg-black bg-opacity-50 -z-0 "></div>
-      <div className="w-full flex justify-center items-center h-screen my-0 z-50 absolute">
+    <div class="bg-[#08123B]">
+      <Layout>
+      <div className="w-[90%] lg:w-[70%] mx-auto grid grid-cols-1 gap-10 py-24">
+        <div className="flex flex-col gap-2 text-white">
+          <p className="text-white font-[Fredoka] text-3xl lg:text-4xl ">Welcome to hackathon 24</p>
+          <p className="font-[Fredoka] text-white">Please Register yourself to take part in the Hackathon</p>
+        </div>
         <form
           action=""
           className="flex flex-col gap-5 min-h-[80vh] items-center"
           onSubmit={handleSubmit(onsubmit)}
         >
-          <div className="flex flex-col gap-3 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg  drop-shadow-2xl">
+          <div className="flex flex-col gap-3 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg shadow-white">
             <div className="flex gap-2 flex-col justify-center w-full">
               <label htmlFor="name" className=" text-white">Name</label>
               <input
@@ -109,8 +113,8 @@ const Register = () => {
             <div className="flex gap-2  flex-col justify-center w-full">
               <label htmlFor="name" className=" text-white">Create Password</label>
               <input
-                type="text"
-                name="payment"
+                type="password"
+                name="password"
                 id=""
                 className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
                 {...register("password")}
@@ -119,16 +123,19 @@ const Register = () => {
             </div>
 
             <div className=" w-full">
-              <button type="submit" className=' bg-blue-800 w-full text-white py-2 rounded-md text-base'>Submit</button>
+              <button type="submit" className=' bg-blue-800 w-full text-white py-2 rounded-md text-base'>Register</button>
             </div>
 
             <Link to={"/login"}>
-              <p className=" text-white font-bold">Click here to Login </p>
+              <p className=" text-white font-bold">Already Registered ? Click here to <span className="underline underline-offset-2">Login</span></p>
             </Link>
 
           </div>
         </form>
       </div>
+      </Layout>
+      <div class=""></div>
+      
     </div>
   );
 };

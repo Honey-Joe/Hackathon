@@ -3,14 +3,17 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { BASE_URL } from "../BASE_URL";
 import { Link, useNavigate } from "react-router-dom";
+import Layout from "../layouts/Layout";
 
 const Login = () => {
   const [token, setToken] = useState();
   const navigate = useNavigate();
+  const  [error,setError] = useState(null)
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -27,10 +30,9 @@ const Login = () => {
       } else {
         navigate("/profile");
       }
-      
+      reset();
     } catch (error) {
-      console.error(error.response.data);
-      alert("Login failed. Please try again.");
+      setError(error.response.data.message)
     }
   };
 
@@ -41,42 +43,68 @@ const Login = () => {
   }, [token]);
 
   return (
-    <div style={styles.container}>
-      <h2 className=" font-bold py-3 text-lg">Login</h2>
-      <form onSubmit={handleSubmit(onSubmit)} style={styles.form}>
-        <div style={styles.inputGroup}>
-          <label>Email:</label>
-          <input
-            type="email"
-            {...register("email", { required: "Email is required" })}
-            className=" w-full py-2 border m-1 rounded-lg"
-          />
-          {errors.email && <p style={styles.error}>{errors.email.message}</p>}
-        </div>
-        <div style={styles.inputGroup}>
-          <label>Password:</label>
-          <input
-            type="password"
-            {...register("password", {
-              required: "Password is required",
-              minLength: { value: 6, message: "Must be at least 6 characters" },
-            })}
-            className=" w-full py-2 border m-1 rounded-lg"
-          />
-          {errors.password && (
-            <p style={styles.error}>{errors.password.message}</p>
-          )}
-        </div>
-        <button type="submit" style={styles.button}>
-          Login
-        </button>
-        <Link to={"/register"}>
-          <p className=" text-start text-sm underline">
-            Clink here to register
-          </p>
-        </Link>
-      </form>
-    </div>
+    <>
+      <div className="bg-[#08123B]">
+        <Layout>
+          <div className="w-[90%] lg:w-[75%] mx-auto grid grid-cols-1 gap-10 py-[100px]">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col gap-5 min-h-[80vh] items-center"
+            >
+              <div className="flex flex-col gap-5 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg  drop-shadow-2xl shadow-white">
+                <div className="flex justify-center w-full">
+                  <p className="font-[Fredoka] text-center text-2xl text-white">Welcome to Hackathon 24</p>
+                </div>
+                <div className="flex justify-center w-full">
+                  <p className="font-[Fredoka] text-center text-xl text-white">Login</p>
+                </div>
+
+                <div className="flex gap-2  flex-col justify-center w-full">
+                  <label htmlFor="name" className=" text-white">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="dept"
+                    id=""
+                    className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
+                    {...register("email")}
+                  />
+                  <p>{errors?.email?.message}</p>
+                </div>
+                <div className="flex gap-2  flex-col justify-center w-full">
+                  <label htmlFor="name" className=" text-white">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="payment"
+                    id=""
+                    className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
+                    {...register("password")}
+                  />
+                  <p className=" text-white">{errors?.password?.message}</p>
+                </div>
+                <div className="font-[Fredoka] text-red-500 text-lg">{error}</div>
+                <div className=" w-full">
+                  <button
+                    type="submit"
+                    className=" bg-blue-800 w-full text-white py-2 rounded-md text-base"
+                  >
+                    Login
+                  </button>
+                </div>
+                <Link to={"/register"}>
+                  <p className=" text-start text-sm underline text-white">
+                    Clink here to register
+                  </p>
+                </Link>
+              </div>
+            </form>
+          </div>
+        </Layout>
+      </div>
+    </>
   );
 };
 
