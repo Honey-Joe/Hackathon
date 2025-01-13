@@ -8,7 +8,6 @@ import DisplayPaymentImage from "./TeamImage";
 const AdminTeam = () => {
   const id = useParams();
   const token = localStorage.getItem("token");
-  const [imageSrc, setImageSrc] = useState(null);
 
   const [data, setData] = useState([]);
   const fetchdata = async () => {
@@ -37,7 +36,7 @@ const AdminTeam = () => {
       <Layout>
         <div>
           {}
-          <div className="w-[90%] lg:w-[65%] mx-auto grid grid-cols-1 h-screen ">
+          <div className="w-[90%] lg:w-[65%] mx-auto grid grid-cols-1  ">
             <div className="py-[120px] flex flex-col gap-5">
               <p className="font-[Fredoka] text-white text-2xl">
                 {data.name}'s Team !
