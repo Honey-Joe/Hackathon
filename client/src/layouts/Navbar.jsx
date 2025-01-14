@@ -66,6 +66,16 @@ const Navbar = () => {
                 </>
               )}
             </li>
+            <li>
+              {
+                user ? (
+                  <>
+                  </>
+                ) : (
+                  <><Link to={"/login"}>Login</Link></>
+                )
+              }
+            </li>
           </ul>
         </div>
         <div className="flex justify-end lg:hidden ">
@@ -116,6 +126,16 @@ const Navbar = () => {
                     <Link to={"/register"}>Register</Link>
                   </>
                 )}
+                <li>
+              {
+                user ? (
+                  <>
+                  </>
+                ) : (
+                  <><Link to={"/login"}>Login</Link></>
+                )
+              }
+            </li> 
               </ul>
             </Paragraph>
           </SideSheet>

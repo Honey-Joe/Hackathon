@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../BASE_URL";
 import DisplayPaymentImage from "./TeamImage";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 
 const Admin = () => {
   const [data, setData] = useState([]);
@@ -28,6 +29,7 @@ const Admin = () => {
   return (
     <div className="bg-blue-950">
       <Layout>
+      <ScrollToTopButton></ScrollToTopButton>
         <div>
           <div className="w-[90%] lg:w-[65%] mx-auto grid grid-cols-1 h-full">
             <div className="py-[120px] flex flex-col gap-6">

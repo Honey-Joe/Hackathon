@@ -9,8 +9,9 @@ import Layout from "../layouts/Layout";
 
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const [data, setData] = useState([]);
-  const [error , setError] = useState(null)
+  const [data, setData] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const schema = z.object({
     email: z.string().email(),
     name: z.string().min(1, { message: "Enter your Name" }),
@@ -31,6 +32,8 @@ const Profile = () => {
   const token = localStorage.getItem("token");
 
   const onsubmit = async (data) => {
+    setIsLoading(true);
+    setError("");
     try {
       const response = await axios.post(
         BASE_URL + "/api/users/member/" + user.id + "/team",
@@ -41,11 +44,12 @@ const Profile = () => {
           },
         }
       );
-      setData(response.data)
-      alert("Registered")
+      setData(data.name+" is Registered !");
       reset();
     } catch (error) {
-      setError(error.response.data.message)
+      setError(error.response.data.message);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
@@ -59,7 +63,10 @@ const Profile = () => {
           <div className="flex flex-col text-white gap-2 font-[Fredoka]">
             <p className="text-3xl">Hi {user.name} !</p>
             <p>Please fill this form to register your team mates </p>
-            <p>Note: Please include yourself and once you registered your team member you can't reverse it </p>
+            <p>
+              Note: Please include yourself and once you registered your team
+              member you can't reverse it{" "}
+            </p>
             <p>For any clarification contact us !</p>
           </div>
           <div className="flex flex-col gap-3 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg  drop-shadow-2xl">
@@ -121,19 +128,20 @@ const Profile = () => {
             <div className=" w-full">
               <button
                 type="submit"
-                className=" bg-blue-800 w-full text-white py-2 rounded-md text-base"
+                disabled={isLoading}
+                className={`w-full px-4 py-2 text-white font-medium rounded-md ${
+                  isLoading ? "bg-blue-300" : "bg-blue-600 hover:bg-blue-700"
+                } focus:outline-none`}
               >
-                Register
+                {isLoading ? "Registering... " : "Register"}
               </button>
             </div>
-            <div>
-              {error ? (<><p className="text-white font-[Fredoka] text-nowrap">{error}</p></>): (<><p className={data.name===undefined?("hidden"):("text-white font-[Fredoka] block")}>{data.name+" is registered !"}</p></>)}
-              
-            </div>
-
-            
-
-            <Link to={"/profile/team"} className="px-5 py-2 border border-white rounded-lg shadow-md shadow-white font-[Fredoka] text-white">
+            <div className="font-[Fredoka] text-red-500 text-lg">{error}</div>
+              <div><p className="text-white font-[Fredoka]">{data}</p></div>
+            <Link
+              to={"/profile/team"}
+              className="px-5 py-2 border border-white rounded-lg shadow-md shadow-white font-[Fredoka] text-white"
+            >
               Click here to see the added team members
             </Link>
           </div>

@@ -8,7 +8,9 @@ import Layout from "../layouts/Layout";
 const Login = () => {
   const [token, setToken] = useState();
   const navigate = useNavigate();
-  const  [error,setError] = useState(null)
+  const  [error,setError] = useState("")
+    const [isLoading, setIsLoading] = useState(false);
+  
 
   const {
     register,
@@ -18,6 +20,7 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    setIsLoading(true)
     try {
       const response = await axios.post(BASE_URL + "/api/users/login", data);
       setToken(response.data.token);
@@ -33,6 +36,8 @@ const Login = () => {
       reset();
     } catch (error) {
       setError(error.response.data.message)
+    }finally{
+      setIsLoading(false);
     }
   };
 
@@ -87,12 +92,15 @@ const Login = () => {
                 </div>
                 <div className="font-[Fredoka] text-red-500 text-lg">{error}</div>
                 <div className=" w-full">
-                  <button
-                    type="submit"
-                    className=" bg-blue-800 w-full text-white py-2 rounded-md text-base"
-                  >
-                    Login
-                  </button>
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={`w-full px-4 py-2 text-white font-medium rounded-md ${
+                  isLoading ? "bg-blue-300" : "bg-blue-600 hover:bg-blue-700"
+                } focus:outline-none`}
+              >
+                {isLoading ? "Logging in..." : "Login"}
+              </button>
                 </div>
                 <Link to={"/register"}>
                   <p className=" text-start text-sm underline text-white">

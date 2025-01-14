@@ -7,11 +7,13 @@ import Profile from './pages/Profile'
 import Admin from './pages/Admin'
 import Team from './pages/Team'
 import AdminTeam from './pages/AdminTeam'
+import ScrollToTop from './components/ScrollTop'
 
 const App = () => {
   return (
     <div>
       <Router>
+        <ScrollToTop />
         <Routes>
             <Route path='/' element={<Home></Home>}></Route>
             <Route path='/register' element={<Register></Register>}></Route>
