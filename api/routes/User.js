@@ -40,7 +40,7 @@ userRoutes.post(
     const userexist = await User.findOne({ email });
     if (userexist) {
       res.status(400);
-      throw new Error("User Already Exist");
+      res.json({message:"User Already Exsist"});
     } else {
       const user = await User.create({
         name,
