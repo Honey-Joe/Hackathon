@@ -5,31 +5,38 @@ import axios from "axios";
 import { BASE_URL } from "../BASE_URL";
 import DisplayPaymentImage from "./TeamImage";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import Loader from "../components/Loader";
 
 const Admin = () => {
   const [data, setData] = useState([]);
   const memberlength = data.length;
-  const [imageSrc, setImageSrc] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const token = localStorage.getItem("token");
+  const [error, setError] = useState("");
   const user = JSON.parse(localStorage.getItem("user"));
   const fetchdata = async () => {
-    const res = await axios.get(BASE_URL + "/api/users/member", {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
-    
-    setData(res.data);
-    console.log(res.data);
+    setIsLoading(true);
+    setError("");
+    try {
+      const res = await axios.get(BASE_URL + "/api/users/member", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      setData(res.data);
+    } catch (error) {
+      setError(error.response.data.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
   useEffect(() => {
-    
     fetchdata();
   }, [1]);
   return (
     <div className="bg-blue-950">
       <Layout>
-      <ScrollToTopButton></ScrollToTopButton>
+        <ScrollToTopButton></ScrollToTopButton>
         <div>
           <div className="w-[90%] lg:w-[65%] mx-auto grid grid-cols-1 h-full">
             <div className="py-[120px] flex flex-col gap-6">
@@ -37,52 +44,70 @@ const Admin = () => {
                 Hi {user.name} !
               </p>
               <div>
-                <p className="text-white font-[Fredoka] text-lg">Total Participants : {memberlength - 1}</p>
+                <p className="text-white font-[Fredoka] text-lg">
+                  Total Participants : {memberlength - 1}
+                </p>
               </div>
               <div>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-                  {data.map((e) => {
-                    return (
-                      <>
-                        <div
-                          className={
-                            e.name == "Admin"
-                              ? "hidden"
-                              : "flex font-[Fredoka]  flex-col items-start gap-3 bg-white border-black  border-2 py-5 px-5 rounded-lg shadow-md shadow-white"
-                          }
-                        >
-                          <div className="flex justify-evenly gap-5 font-[Fredoka]">
-                            <p>Name:</p>
-                            {e.name}
-                          </div>
-                          <div className="flex justify-evenly gap-5">
-                            <p>Email:</p>
-                            {e.email}
-                          </div>
-                          <div className="flex justify-evenly gap-5">
-                            <p>College:</p>
-                            {e.college}
-                          </div>
-                          <div className="flex justify-evenly gap-5">
-                            <p>Department:</p>
-                            {e.dept}
-                          </div>
-                          <div className="flex justify-evenly gap-5">
-                            <p>Contact:</p>
-                            {e.contact}
-                          </div>
-                          <div className="flex justify-evenly gap-5">
-                            <p>Payment</p>
-                            {e.payment?.image?.data ? <>Paid</> : <>Not paid</>}
-                          </div>
-                          <div className="flex justify-center w-full">
-                            <Link to={"/admin/" + e._id}><button className="bg-black px-5 py-2 rounded-lg text-white font-[Fredoka]">Team Details</button></Link>
-                          </div>
-                        </div>
-                      </>
-                    );
-                  })}
-                </div>
+                {isLoading ? (
+                  <>
+                    <Loader></Loader>
+                  </>
+                ) : (
+                  <>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                      {data.map((e) => {
+                        return (
+                          <>
+                            <div
+                              className={
+                                e.name == "Admin"
+                                  ? "hidden"
+                                  : "flex font-[Fredoka]  flex-col items-start gap-3 bg-white border-black  border-2 py-5 px-5 rounded-lg shadow-md shadow-white"
+                              }
+                            >
+                              <div className="flex justify-evenly gap-5 font-[Fredoka]">
+                                <p>Name:</p>
+                                {e.name}
+                              </div>
+                              <div className="flex justify-evenly gap-5">
+                                <p>Email:</p>
+                                {e.email}
+                              </div>
+                              <div className="flex justify-evenly gap-5">
+                                <p>College:</p>
+                                {e.college}
+                              </div>
+                              <div className="flex justify-evenly gap-5">
+                                <p>Department:</p>
+                                {e.dept}
+                              </div>
+                              <div className="flex justify-evenly gap-5">
+                                <p>Contact:</p>
+                                {e.contact}
+                              </div>
+                              <div className="flex justify-evenly gap-5">
+                                <p>Payment</p>
+                                {e.payment?.image?.data ? (
+                                  <>Paid</>
+                                ) : (
+                                  <>Not paid</>
+                                )}
+                              </div>
+                              <div className="flex justify-center w-full">
+                                <Link to={"/admin/" + e._id}>
+                                  <button className="bg-black px-5 py-2 rounded-lg text-white font-[Fredoka]">
+                                    Team Details
+                                  </button>
+                                </Link>
+                              </div>
+                            </div>
+                          </>
+                        );
+                      })}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>

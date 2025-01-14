@@ -1,21 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { BASE_URL } from '../BASE_URL';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { BASE_URL } from "../BASE_URL";
+import Loader from "../components/Loader";
 
 function DisplayPaymentImage({ userId }) {
   const [imageSrc, setImageSrc] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchImage = async () => {
+      setIsLoading(true);
       try {
-        const response = await axios.get(BASE_URL+`/api/users/member/${userId}/payment`, {
-          responseType: 'blob',
-        });
+        const response = await axios.get(
+          BASE_URL + `/api/users/member/${userId}/payment`,
+          {
+            responseType: "blob",
+          }
+        );
 
         const imageURL = URL.createObjectURL(response.data);
         setImageSrc(imageURL);
       } catch (error) {
-        console.error('Error fetching image:', error);
+        console.error("Error fetching image:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -23,9 +31,27 @@ function DisplayPaymentImage({ userId }) {
   }, [userId]);
 
   return (
-    <div className='mb-[200px]'>
-      {imageSrc ? <img src={imageSrc} alt="Payment" className='w-[200px] h-[200px]' /> : <p>Loading...</p>}
-    </div>
+    <>
+      {isLoading ? (
+        <>
+          <Loader></Loader>
+        </>
+      ) : (
+        <>
+          <div className="mb-[200px]">
+            {imageSrc ? (
+              <img
+                src={imageSrc}
+                alt="Payment"
+                className="w-[200px] h-[200px]"
+              />
+            ) : (
+              <p>Loading...</p>
+            )}
+          </div>
+        </>
+      )}
+    </>
   );
 }
 
