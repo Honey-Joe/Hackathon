@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import DeleteTeamMember from "../components/DeleteTeamMember";
 import Loader from "../components/Loader";
+import { scanner } from "../assets/asset";
 
 const Team = () => {
   const token = localStorage.getItem("token");
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  
+  const [teamMembers, setTeamMembers] = useState(null)
   const user = JSON.parse(localStorage.getItem("user"));
   const fetchdata = async () => {
     setIsLoading(true);
@@ -31,7 +32,7 @@ const Team = () => {
       setIsLoading(false);
     }
   };
-  
+
   useEffect(() => {
     fetchdata();
   }, [1]);
@@ -85,11 +86,13 @@ const Team = () => {
                   );
                 })}
               </div>
+              <div className="flex flex-col gap-5 font-[Fredoka] text-white">
+                <p>Regitration Fee for each member in Rs. 150 </p>
+                <p>Registraion fee for your team in Rs. {teamMembers * 150}</p>
+                
+              </div>
             </>
           )}
-
-  
-          
         </div>
       </div>
     </>

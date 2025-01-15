@@ -21,9 +21,6 @@ const Profile = () => {
   const [file, setFile] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
-
-  const [teamMembers, setTeamMembers] = useState(null);
-
   const schema = z.object({
     email: z.string().email(),
     name: z.string().min(1, { message: "Enter your Name" }),
@@ -215,18 +212,14 @@ const Profile = () => {
               onSubmit={handelSubmit}
               className="flex flex-col gap-5"
             >
-              <div className="flex flex-col gap-5 font-[Fredoka] text-white">
-                <p>Regitration Fee for each member in Rs. 150 </p>
-                <p>Registraion fee for your team in Rs. {teamMembers * 150}</p>
-                <div className="flex justify-center">
+              <div className="flex justify-center">
                   <img
                     src={scanner}
                     alt="payment scanner image"
                     className="w-[70%] lg:w-[30%]"
                   />
                 </div>
-                <p>Please upload the screenshot of the payment image</p>
-              </div>
+                <p className="font-[Fredoka] text-white">Please upload the screenshot of the payment image</p>
               <input
                 type="file"
                 name="screensshot"

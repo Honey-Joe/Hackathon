@@ -116,25 +116,6 @@ const Login = () => {
   );
 };
 
-const styles = {
-  container: {
-    maxWidth: "400px",
-    margin: "100px auto",
-    padding: "20px",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    textAlign: "center",
-  },
-  form: { display: "flex", flexDirection: "column", gap: "15px" },
-  inputGroup: { textAlign: "left" },
-  error: { color: "red", fontSize: "0.8em" },
-  button: {
-    padding: "10px",
-    backgroundColor: "#007BFF",
-    color: "#fff",
-    border: "none",
-    cursor: "pointer",
-  },
-};
+
 
 export default Login;
