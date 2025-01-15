@@ -31,6 +31,26 @@ userRoutes.post(
   })
 );
 
+userRoutes.post("/",AsyncHandler(async(req,res)=>{
+  try{
+    const {name,email,college,password,dept,contact} = req.body;
+    const user = await User.findOne({email})
+    if(user){
+      res.status(500).json({message:"User already Exsist"})
+    }else{
+      const userSave = await User.create({
+        name,email,college,password,dept,contact
+      })
+
+      const createdUser = await userSave.save();
+      res.json({message:"User created Successfully",createdUser});
+    }
+    
+  }catch(error){
+    res.send(error)
+  }
+}))
+
 
 
 userRoutes.get(

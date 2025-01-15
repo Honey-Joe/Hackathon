@@ -6,6 +6,7 @@ import { BASE_URL } from "../BASE_URL";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import Loader from "../components/Loader";
 import DeleteTeam from "../components/DeleteTeam";
+import FetchAllTeamMember from "../components/FetchAllTeamMember";
 
 const Admin = () => {
   const [data, setData] = useState([]);
@@ -13,7 +14,6 @@ const Admin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const token = localStorage.getItem("token");
   const [error, setError] = useState("");
-  const [mem,setMem] = useState(null)
   const user = JSON.parse(localStorage.getItem("user"));
   
   
@@ -27,10 +27,8 @@ const Admin = () => {
         },
       });
       setData(res.data);
-      console.log(res.data)
-      setMem(res.data.teamMember.length)
     } catch (error) {
-      setError(error.response.data.message);
+      setError(error.response?.data?.message);
     } finally {
       setIsLoading(false);
     }
@@ -38,7 +36,6 @@ const Admin = () => {
   useEffect(() => {
     fetchdata();
   }, [1]);
-  console.log(mem)
   return (
     <div className="bg-blue-950">
       <Layout>
@@ -49,10 +46,11 @@ const Admin = () => {
               <p className="font-[Fredoka] text-white text-2xl">
                 Hi {user.name} !
               </p>
-              <div>
+              <div className="flex flex-col gap-3">
                 <p className="text-white font-[Fredoka] text-lg">
                   Total Teams : {memberlength - 1}
                 </p>
+                <FetchAllTeamMember></FetchAllTeamMember>
               </div>
               <div>
                 {isLoading ? (
@@ -100,7 +98,10 @@ const Admin = () => {
                                   <>Not paid</>
                                 )}
                               </div>
-                              <div>{e.teamMember.length}</div>
+                              <div className="flex justify-evenly gap-5">
+                                <p>No. of Team Member:</p>
+                                {e.teamMember.length}
+                              </div>
                              
                               <div className="flex justify-between w-full">
                                 <Link to={"/admin/" + e._id}>
