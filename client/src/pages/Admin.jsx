@@ -3,9 +3,9 @@ import Layout from "../layouts/Layout";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../BASE_URL";
-import DisplayPaymentImage from "./TeamImage";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import Loader from "../components/Loader";
+import DeleteTeam from "../components/DeleteTeam";
 
 const Admin = () => {
   const [data, setData] = useState([]);
@@ -13,7 +13,10 @@ const Admin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const token = localStorage.getItem("token");
   const [error, setError] = useState("");
+  const [mem,setMem] = useState(null)
   const user = JSON.parse(localStorage.getItem("user"));
+  
+  
   const fetchdata = async () => {
     setIsLoading(true);
     setError("");
@@ -24,6 +27,8 @@ const Admin = () => {
         },
       });
       setData(res.data);
+      console.log(res.data)
+      setMem(res.data.teamMember.length)
     } catch (error) {
       setError(error.response.data.message);
     } finally {
@@ -33,6 +38,7 @@ const Admin = () => {
   useEffect(() => {
     fetchdata();
   }, [1]);
+  console.log(mem)
   return (
     <div className="bg-blue-950">
       <Layout>
@@ -45,7 +51,7 @@ const Admin = () => {
               </p>
               <div>
                 <p className="text-white font-[Fredoka] text-lg">
-                  Total Participants : {memberlength - 1}
+                  Total Teams : {memberlength - 1}
                 </p>
               </div>
               <div>
@@ -94,12 +100,16 @@ const Admin = () => {
                                   <>Not paid</>
                                 )}
                               </div>
-                              <div className="flex justify-center w-full">
+                             
+                              <div className="flex justify-between w-full">
                                 <Link to={"/admin/" + e._id}>
                                   <button className="bg-black px-5 py-2 rounded-lg text-white font-[Fredoka]">
                                     Team Details
                                   </button>
                                 </Link>
+                                <div>
+                                <DeleteTeam userId={e._id}></DeleteTeam>
+                              </div>
                               </div>
                             </div>
                           </>
