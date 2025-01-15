@@ -52,6 +52,7 @@ teamRoutes.post(
   })
 );
 
+
 //fetch teammembers of a user route
 teamRoutes.get(
   "/:id",
@@ -69,12 +70,13 @@ teamRoutes.get(
     }
   })
 );
+//delete the team member
 
 teamRoutes.delete("/:userId/team/:memberId",protect,AsyncHandler(async(req,res)=>{
     const { userId, memberId } = req.params;
 
   try {
-    // Check if the authenticated user matches the target user
+    
     if (req.user.id !== userId) {
       return res.status(403).json({ message: "Not authorized to delete team members for this user." });
     }
@@ -84,7 +86,6 @@ teamRoutes.delete("/:userId/team/:memberId",protect,AsyncHandler(async(req,res)=
       return res.status(404).json({ message: "User not found" });
     }
 
-    // Find and remove the team member
     const teamMemberIndex = user.teamMember.findIndex(
       (member) => member._id.toString() === memberId
     );
@@ -93,7 +94,7 @@ teamRoutes.delete("/:userId/team/:memberId",protect,AsyncHandler(async(req,res)=
       return res.status(404).json({ message: "Team member not found" });
     }
 
-    user.teamMember.splice(teamMemberIndex, 1); // Remove the team member
+    user.teamMember.splice(teamMemberIndex, 1); 
     await user.save();
 
     res.status(200).json({

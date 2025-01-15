@@ -100,6 +100,7 @@ const Admin = () => {
                                   <>Not paid</>
                                 )}
                               </div>
+                              <div>{e.teamMember.length}</div>
                              
                               <div className="flex justify-between w-full">
                                 <Link to={"/admin/" + e._id}>

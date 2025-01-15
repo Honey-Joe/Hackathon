@@ -47,7 +47,18 @@ userRoutes.get(
   })
 );
 
+//fetch all teamMember 
+userRoutes.get("/all-team-member",protect, AsyncHandler(async(req,res)=>{
+  try{
+    const user = await User.find({},{teamMember:1,_id:0})
 
+    const allUsers = user.map((user)=> user.teamMember).flat()
+
+   res.status(200).json({message:"All the team members all fetched",teamMember:allUsers})
+  }catch (error){
+    res.status(500).json({message:"Internal Server Error",error})
+  }
+}))
 
 userRoutes.delete("/:id",protect,AsyncHandler(async(req,res)=>{
   const {id} = req.params;
