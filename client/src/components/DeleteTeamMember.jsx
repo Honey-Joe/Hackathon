@@ -28,7 +28,7 @@ const DeleteTeamMember = ({ userId, memberId }) => {
   };
   return (
     <div>
-      <button className="px-3 py-2 border-2 border-black rounded-lg" onClick={deleteMember}>
+      <button className="px-3 py-2 border-2  rounded-lg text-white font-[Fredoka] bg-red-600" onClick={deleteMember}>
         {isLoading ? <>Deleting</> : <>Delete this Member !</>}
       </button>
       {data? (<>{data.message}</>):<>{error?<>{error}</>:<></>}</>}

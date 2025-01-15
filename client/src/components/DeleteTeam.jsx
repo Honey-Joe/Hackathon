@@ -26,7 +26,7 @@ const DeleteTeam = ({userId}) => {
     }
   return (
     <div>
-        <button onClick={deleteTeam} className='bg-red-500 px-5 py-2 rounded-lg text-white font-[Fredoka]'>
+        <button onClick={deleteTeam} className='bg-red-600 px-5 py-2 rounded-lg text-white font-[Fredoka]'>
             {isLoading? (<>Deleting</>):(<>Delete this Team</>)}
         </button>
         <p>{data?(data.message):(<></>)}</p>
