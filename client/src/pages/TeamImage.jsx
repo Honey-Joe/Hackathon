@@ -12,7 +12,7 @@ function DisplayPaymentImage({ userId }) {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          BASE_URL + `/api/users/member/${userId}/payment`,
+          BASE_URL + `/api/users/payment/${userId}`,
           {
             responseType: "blob",
           }

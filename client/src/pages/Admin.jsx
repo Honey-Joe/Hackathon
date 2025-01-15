@@ -18,7 +18,7 @@ const Admin = () => {
     setIsLoading(true);
     setError("");
     try {
-      const res = await axios.get(BASE_URL + "/api/users/member", {
+      const res = await axios.get(BASE_URL + "/api/users/", {
         headers: {
           Authorization: "Bearer " + token,
         },

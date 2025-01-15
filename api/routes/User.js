@@ -31,84 +31,10 @@ userRoutes.post(
   })
 );
 
-userRoutes.post(
-  "/",
-  AsyncHandler(async (req, res) => {
-    const { name, email, password, college, dept, contact } = req.body;
-    const userexist = await User.findOne({ email });
-    if (userexist) {
-      res.status(400);
-      res.json({message:"User Already Exsist"});
-    } else {
-      const user = await User.create({
-        name,
-        email,
-        password,
-        college,
-        dept,
-        contact,
-      });
-      if (user) {
-        res.status(201).json({
-          data: user,
-          message: "Registered",
-        });
-      } else {
-        res.status(400);
-        throw new Error("User data Invalid");
-      }
-    }
-  })
-);
 
-userRoutes.post(
-  "/member/:id/team",
-  protect,
-  AsyncHandler(async (req, res) => {
-    const userId = req.params.id;
-    const { name, email, contact, degree } = req.body; // Extract individual fields
-
-    // Validate that all required fields are present
-    if (!name || !email || !contact || !degree) {
-      return res.status(400).json({
-        message:
-          "Missing required fields. Please provide name, email, contact, and degree.",
-      });
-    }
-
-    try {
-      const user = await User.findById(userId);
-      if (!user) {
-        return res.status(404).json({ message: "User not found" });
-      }
-
-      // Ensure no more than 3 team members
-      if (user.teamMember.length >= 3) {
-        return res.status(400).json({
-          message: `Cannot add more than 3 team members. Current: ${user.teamMember.length}`,
-        });
-      }
-
-      // Create a team member object from the fields
-      const newTeamMember = { name, email, contact, degree };
-
-      // Add the new team member to the user's team
-      user.teamMember.push(newTeamMember);
-      await user.save();
-
-      res.status(200).json({
-        message: "Team member added successfully",
-        user,
-      });
-    } catch (error) {
-      console.error("Error adding team member:", error);
-      res.status(500).json({ message: "Internal server error", error });
-    }
-  })
-);
 
 userRoutes.get(
-  "/member",
+  "/",
   protect,
   AsyncHandler(async (req, res) => {
     try {
@@ -122,22 +48,7 @@ userRoutes.get(
 );
 
 
-userRoutes.get(
-  "/member/:id",
-  protect,
-  AsyncHandler(async (req, res) => {
-    try {
-      const user = await User.findById(req.params.id).populate("teamMember");
-      if (!user) {
-        return res.status(404).json({ message: "User not found" });
-      }
-      res.status(200).json(user);
-    } catch (error) {
-      console.error("Error fetching user by ID:", error);
-      res.status(500).json({ message: "Internal server error", error });
-    }
-  })
-);
+
 
 
 

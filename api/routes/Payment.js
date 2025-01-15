@@ -6,7 +6,7 @@ const multer = require("multer")
 const storage = multer.memoryStorage(); // Store image in memory
 const upload = multer({ storage });
 
-paymentRoutes.put('/:id/payment', upload.single('paymentImage'), async (req, res) => {
+paymentRoutes.put('/:id', upload.single('paymentImage'), async (req, res) => {
     try {
       const userId = req.params.id;
   
@@ -33,7 +33,7 @@ paymentRoutes.put('/:id/payment', upload.single('paymentImage'), async (req, res
       res.status(500).json({ error: error.message });
     }
   });
-  paymentRoutes.get('/:id/payment', async (req, res) => {
+  paymentRoutes.get('/:id', async (req, res) => {
     try {
       const userId = req.params.id;
   
