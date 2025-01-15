@@ -49,7 +49,20 @@ userRoutes.get(
 
 
 
-
+userRoutes.delete("/:id",protect,AsyncHandler(async(req,res)=>{
+  const {id} = req.params;
+  const user = await User.findById(id);
+  try{
+    if(user){
+      await user.deleteOne();
+      res.status(200).json({message:"User Deleted Success fully"})
+    }else{
+      res.json({message:"User not found"});
+    }
+  }catch(error){
+    res.status(400).json({message:error})
+  }
+}))
 
 
 
