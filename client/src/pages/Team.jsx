@@ -91,6 +91,9 @@ const Team = () => {
                 <p>Registraion fee for your team in Rs. {teamMembers * 150}</p>
                 
               </div>
+              <div>
+                {data.payment?.image?.data ? (<><p className="font-[Fredoka] text-white">You're Already Registered</p></>):(<></>)}
+              </div>
             </>
           )}
         </div>
