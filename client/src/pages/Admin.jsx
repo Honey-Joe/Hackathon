@@ -7,6 +7,7 @@ import ScrollToTopButton from "../components/ScrollToTopButton";
 import Loader from "../components/Loader";
 import DeleteTeam from "../components/DeleteTeam";
 import FetchAllTeamMember from "../components/FetchAllTeamMember";
+import SearchBox from "../components/SearchBox";
 
 const Admin = () => {
   const [data, setData] = useState([]);
@@ -27,6 +28,7 @@ const Admin = () => {
         },
       });
       setData(res.data);
+      console.log(res.data);
     } catch (error) {
       setError(error.response?.data?.message);
     } finally {
@@ -52,6 +54,7 @@ const Admin = () => {
                 </p>
                 <FetchAllTeamMember></FetchAllTeamMember>
               </div>
+              <SearchBox></SearchBox>
               <div>
                 {isLoading ? (
                   <>
@@ -59,7 +62,7 @@ const Admin = () => {
                   </>
                 ) : (
                   <>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                       {data.map((e) => {
                         return (
                           <>
