@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from '../BASE_URL';
 
 const SearchBox = () => {
   const [query, setQuery] = useState('');
@@ -30,7 +31,7 @@ const SearchBox = () => {
   const fetchFilteredUsers = async (searchQuery) => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`http://localhost:3000/api/users/search/?query=${searchQuery}`);
+      const response = await axios.get(BASE_URL+`/api/users/search/?query=${searchQuery}`);
       setFilteredUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
