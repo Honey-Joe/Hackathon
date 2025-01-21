@@ -28,9 +28,9 @@ teamRoutes.post(
       }
 
       // Ensure no more than 3 team members
-      if (user.teamMember.length >= 3) {
+      if (user.teamMember.length >= 2) {
         return res.status(400).json({
-          message: `Cannot add more than 3 team members. Current: ${user.teamMember.length}`,
+          message: `Cannot add more than 2 team members. Current: ${user.teamMember.length}`,
         });
       }
 
