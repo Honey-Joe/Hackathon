@@ -33,7 +33,7 @@ const Header = () => {
                     WebSprint'25
                   </p>
                   <p className="text-white font-[Poppins] text-center">
-                    A State Level Intercollegiate Technical Symposium
+                    A State Level Intercollegiate Hackathon
                   </p>
                 </div>
                 <div>
