@@ -12,19 +12,31 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isRegisterd, setIsRegistered] = useState(false);
   const [error, setError] = useState("");
-  const schema = z.object({
-    email: z.string().email(),
-    name: z.string().min(1, { message: "Enter your Name" }),
-    college: z.string().min(1, { message: "Enter your College Name" }),
-    dept: z.string().min(1, { message: "Enter your Department" }),
-    contact: z.string().min(10, { message: "Enter correct phone number" }),
-    password: z
-      .string()
-      .max(8, { message: "Password must contains 8 character" })
-      .min(1, { message: "Enter your password" }),
+  const schema = z
+    .object({
+      email: z.string().email(),
+      name: z.string().min(1, { message: "Enter your Name" }),
+      college: z.string().min(1, { message: "Enter your College Name" }),
+      dept: z.string().min(1, { message: "Enter your Department" }),
+      contact: z.string().min(10, { message: "Enter correct phone number" }),
+      password: z
+        .string()
+        .min(4, { message: "Password must be at least 4 characters" }),
+      confirmPassword: z
+        .string()
+        .min(4, { message: "Please confirm your password" }),
+    })
+    .superRefine((data, ctx) => {
+      if (data.password !== data.confirmPassword) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Passwords do not match",
+          path: ["confirmPassword"],
+        });
+      }
 
-    // Other fields like password can be added here
-  });
+      // Other fields like password can be added here
+    });
 
   const {
     register,
@@ -38,8 +50,8 @@ const Register = () => {
     setIsLoading(true);
     setError("");
     try {
+      const { confirmPassword, ...submitData } = data;
       const response = await axios.post(BASE_URL + "/api/users/", data);
-
       navigate("/login");
     } catch (error) {
       setError(error.response?.data?.message || "An unexpected error occured");
@@ -145,8 +157,22 @@ const Register = () => {
                 />
                 <p className=" text-white">{errors?.password?.message}</p>
               </div>
+              <div className="flex gap-2  flex-col justify-center w-full">
+                <label htmlFor="name" className=" text-white">
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  name="confirmpassword"
+                  id=""
+                  className="border border-zinc-300 rounded-lg w-full p-2 mt-1"
+                  {...register("confirmPassword")}
+                />
+                {errors.confirmPassword && (
+                  <p className="text-red-500">{errors.confirmPassword.message}</p>
+                )}{" "}
+              </div>
 
-              
               {error && <p className="text-red-600 text-sm">{error}</p>}
               <button
                 type="submit"

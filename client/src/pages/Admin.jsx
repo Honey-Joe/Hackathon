@@ -8,6 +8,7 @@ import Loader from "../components/Loader";
 import DeleteTeam from "../components/DeleteTeam";
 import FetchAllTeamMember from "../components/FetchAllTeamMember";
 import SearchBox from "../components/SearchBox";
+import ScrollToTop from "../components/ScrollTop";
 
 const Admin = () => {
   const [data, setData] = useState([]);
@@ -28,7 +29,6 @@ const Admin = () => {
         },
       });
       setData(res.data);
-      console.log(res.data);
     } catch (error) {
       setError(error.response?.data?.message);
     } finally {
@@ -42,6 +42,7 @@ const Admin = () => {
     <div className="bg-blue-950">
       <Layout>
         <ScrollToTopButton></ScrollToTopButton>
+        <ScrollToTop></ScrollToTop>
         <div>
           <div className="w-[90%] lg:w-[65%] mx-auto grid grid-cols-1 h-full">
             <div className="py-[120px] flex flex-col gap-6">

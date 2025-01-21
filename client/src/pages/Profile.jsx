@@ -94,18 +94,11 @@ const Profile = () => {
     <div className="bg-blue-950">
       <Layout>
         <ScrollToTopButton></ScrollToTopButton>
-        <div className="w-[90%] lg:w-[70%] mx-auto py-[150px] grid grid-cols-1 lg:grid-cols-2  gap-5">
-          <div className="flex flex-col gap-3">
+        <div className="w-[90%] lg:w-[70%] mx-auto py-[150px] grid grid-cols-1 gap-5">
+          <div className="flex justify-between gap-3">
             <div className="flex flex-col  text-white gap-2 font-[Fredoka]">
               <p className="text-3xl">Hi {user.name} !</p>
-              <p>Please fill this form to register your team mates </p>
-              <p>
-                Note: Please include yourself and once you registered your team
-                member you can't reverse it{" "}
-              </p>
-              <p>For any clarification contact us !</p>
             </div>
-
             <Pane>
               <Dialog
                 isShown={isShown}
@@ -149,7 +142,7 @@ const Profile = () => {
                     </div>
                     <div className="flex gap-2  flex-col justify-center w-full">
                       <label htmlFor="name" className="  font-[Fredoka]">
-                        Department
+                        Department No.
                       </label>
                       <input
                         type="text"
@@ -201,52 +194,12 @@ const Profile = () => {
                 className="px-5 py-2 text-white font-[Fredoka] border-2 border-white shadow-md shadow-white rounded-lg"
                 onClick={() => setIsShown(true)}
               >
-                Add Team member
+                Add Participants
               </button>
             </Pane>
           </div>
           <Team></Team>
-          <div className=" lg:col-span-2">
-            <form
-              action=""
-              onSubmit={handelSubmit}
-              className="flex flex-col gap-5"
-            >
-              <div className="flex justify-center">
-                  <img
-                    src={scanner}
-                    alt="payment scanner image"
-                    className="w-[70%] lg:w-[30%]"
-                  />
-                </div>
-                <p className="font-[Fredoka] text-white">Please upload the screenshot of the payment image</p>
-              <input
-                type="file"
-                name="screensshot"
-                accept="image/*"
-                id=""
-                className="border border-white shadow-md shadow-white px-5 py-3 text-white font-[Fredoka] rounded-lg "
-                onChange={(e) => {
-                  setFile(e.target.files[0]);
-                }}
-              />
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={` px-4 py-2 text-white font-medium rounded-md ${
-                  isLoading
-                    ? "bg-blue-300"
-                    : "border border-white shadow-md shadow-white px-5 py-3 text-white font-[Fredoka] rounded-lg"
-                } focus:outline-none`}
-              >
-                {isSubmitting ? "Submitting..." : "Submit"}
-              </button>
-              <div>
-                <p className="font-[Fredoka] text-white text-xl">{message}</p>
-              </div>
-            </form>
-          </div>
+          
         </div>
       </Layout>
     </div>

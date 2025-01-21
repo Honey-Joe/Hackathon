@@ -27,7 +27,7 @@ paymentRoutes.put('/:id', upload.single('paymentImage'), async (req, res) => {
       // Save the updated user
       await user.save();
   
-      res.status(200).json({ message: 'Congratulation You are registerd to hackathon 24', user });
+      res.status(200).json({ message: 'Congratulation You are registerd to WebSprint 25', user });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: error.message });
