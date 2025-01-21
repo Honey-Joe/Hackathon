@@ -15,7 +15,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className=" z-10 w-[100%]  lg:left-0 lg:top-0  lg:rounded-md  mx-auto px-5 lg:px-10 grid grid-cols-2 lg:grid-cols-2 py-7 lg:py-3 shadow-lg items-center  text-white  fixed">
+      <div className=" z-10 w-[100%]  lg:left-0 lg:top-0  lg:rounded-md  mx-auto px-5 lg:px-10 grid grid-cols-2 lg:grid-cols-2 py-7 lg:py-3 shadow-lg items-center  text-white  fixed bg-white/10 backdrop-blur-md border-b border-white/80">
         <div>
           <Link to={"/"}>
             <p className="font-[Stylish] text-[20px] lg:text-[24px]">
@@ -26,13 +26,10 @@ const Navbar = () => {
         <div className=" py-5 hidden lg:flex lg:justify-end lg:bg-transparent bg-white">
           <ul className=" lg:static  hidden  flex-col lg:flex-row  lg:flex gap-5 font-[Stylish] text-[20px] text-center">
             <li className="hover:scale-125 transition">
-              <Link to={"/"}>Home</Link>
+              <a onClick={()=>navigate('/')} href="#home">Home</a>
             </li>
             <li>
               <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#event">Event</a>
             </li>
             <li>
               <a href="#schedule">Schedule</a>

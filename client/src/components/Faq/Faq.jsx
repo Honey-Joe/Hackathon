@@ -11,12 +11,13 @@ const Faq = () => {
     }
     const accordionData = [
         {
-            title:"How many events can a participant join?",
-            desc:"A participant can join a maximum of two events, including any two technical and two non-technical events. (It’s the team's responsibility to ensure that no events clash with one another)"
+            title:"How many participant can join?",
+            desc:"Maximum 2 participants",
+            desc1:"Any number of team can participate in this event",
         },
         {
             title:"What is the registration fee, and when is the payment deadline?",
-            desc:"The registration fee is ₹150 per participant, and it must be paid on or before 28th Nov 2024.."
+            desc:"The registration fee is ₹150 per participant, and it must be paid on or before 30th Jan 2025."
         },
         {
             title:"Who is eligible to participate in the event?",
@@ -36,7 +37,7 @@ const Faq = () => {
     ]
   return (
     <>
-        <div className="max-w-[100%] mx-auto bg-[#081F4D]  py-[40px]">
+        <div className="max-w-[100%] mx-auto bg-[#08123B]  py-[40px]">
             <div className="lg:w-[90%] xl:w-[90%] mx-auto py-20 w-[90%]">
                 <div className=" grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
                     <div className="h-full flex justify-center">
@@ -59,7 +60,7 @@ const Faq = () => {
                                 accordionData.map((data, index) =>{
                                     return(
                                         <>
-                                            <FaqAccodion key={index} open={index===open} title={data.title} desc={data.desc} toggle={()=>toggle(index)}/>
+                                            <FaqAccodion key={index} open={index===open} title={data.title} desc={data.desc} desc1={data.desc1} toggle={()=>toggle(index)}/>
                                         </>
                                     )
                                 })

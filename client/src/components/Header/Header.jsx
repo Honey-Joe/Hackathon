@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="">
+      <div className="" id="home">
         <div class="relative w-full h-screen bg-[url(https://ik.imagekit.io/HoneyJoe/Hackathon/army-robots-with-leader.jpg?updatedAt=1736657931131)] bg-cover bg-center">
           <div class="absolute inset-0 bg-black bg-opacity-50"></div>
           <div className="absolute inset-0 w-[90%] lg:w-[70%] mx-auto grid grid-cols-1  h-screen">
@@ -30,7 +30,7 @@ const Header = () => {
               <div className="flex justify-center items-center flex-col gap-5">
                 <div>
                   <p className="text-[50px] lg:text-[80px] text-center font-[Stylish] text-white">
-                    Hackathon 24
+                    WebSprint'25
                   </p>
                   <p className="text-white font-[Poppins] text-center">
                     A State Level Intercollegiate Technical Symposium
