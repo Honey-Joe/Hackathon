@@ -34,7 +34,7 @@ const Team = () => {
       pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
 
       // Save the PDF
-      pdf.save("component.pdf");
+      pdf.save(user.name+" team's id.pdf");
     } catch (error) {
       console.error("Error generating PDF:", error);
     }
