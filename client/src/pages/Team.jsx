@@ -24,7 +24,7 @@ const Team = () => {
     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
     pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save(user.name+"id.pdf");
+    pdf.save(user.name + " team's id.pdf");
   };
 
   const [data, setData] = useState([]);
@@ -80,23 +80,20 @@ const Team = () => {
                 {data.teamMember?.map((e) => {
                   return (
                     <>
-                      <div
-                        ref={componentRef}
-                        className="flex font-[Fredoka]  flex-col items-start gap-3 bg-white border-black  border-2 py-5 px-5 rounded-lg shadow-md shadow-white"
-                      >
-                        <div className="flex justify-evenly gap-5 font-[Fredoka]">
+                      <div className="flex font-[Fredoka]  flex-col items-start gap-3 bg-white border-black  border-2 py-5 px-5 rounded-lg shadow-md shadow-white">
+                        <div className="grid grid-cols-2 font-[Fredoka]">
                           <p>Name:</p>
                           {e.name}
                         </div>
-                        <div className="flex justify-evenly gap-5">
+                        <div className="grid grid-cols-2">
                           <p>Email:</p>
                           {e.email}
                         </div>
-                        <div className="flex justify-evenly gap-5">
+                        <div className="grid grid-cols-2">
                           <p>Contact:</p>
                           {e.contact}
                         </div>
-                        <div className="flex justify-evenly gap-5">
+                        <div className="grid grid-cols-2">
                           <p>Department No.</p>
                           {e.degree}
                         </div>
@@ -106,29 +103,67 @@ const Team = () => {
                             memberId={e._id}
                           ></DeleteTeamMember>
                         </div>
-                        <button
-                          onClick={handleDownloadPdf}
-                          style={{ marginTop: "20px" }}
-                        >
-                          Download as PDF
-                        </button>
                       </div>
                     </>
                   );
                 })}
               </div>
-              <div>
-                {
-                  data.teamMember?.map((e)=>{
-                    return(
-                      <>
-                        <div>
-                          
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 ">
+                {data.teamMember?.map((e) => {
+                  return (
+                    <>
+                      <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 px-5 rounded-lg shadow-md shadow-white mx-auto" ref={componentRef}>
+                        <div className="flex flex-col gap-5 w-full mx-auto text-white">
+                          <p className="font-[Fredoka]  text-center font-bold text-2xl text-[#fbe072]">
+                            DEPARTMENT OF COMPUTER SCIENCE
+                          </p>
+                          <div className=" flex flex-col items-center gap-0">
+                            <p className="font-[Poppins] font-medium text-lg text-center">
+                              St. Joseph's College (Autonomous)
+                            </p>
+                          </div>
+                          <p className="text-3xl text-center font-[Stylish] ">
+                            WebSprint'25
+                          </p>
                         </div>
-                      </>
-                    )
-                  })
-                }
+                        <div className="grid grid-cols-1 justify-start items-center w-[80%] gap-3 mx-auto text-white">
+                        <div className="grid grid-cols-2">
+                          <p>Team Id:</p>
+                          {user.teamId}
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <p>Name:</p>
+                          {e.name}
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <p>College:</p>
+                          {user.college}
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <p>Email:</p>
+                          {e.email}
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <p>Contact:</p>
+                          {e.contact}
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <p>Department No.</p>
+                          {e.degree}
+                        </div>
+                        </div>
+                        <button
+                        onClick={handleDownloadPdf}
+                        className="px-5 py-2 border-white border shadow-white shadow-md text-white font-[Fredoka] rounded-lg"
+                      >
+                        Click to get your ID
+                      </button>
+                        
+                      </div>
+                     
+                    </>
+                  );
+                })}
               </div>
             </>
           )}

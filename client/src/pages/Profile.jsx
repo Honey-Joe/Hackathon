@@ -99,6 +99,7 @@ const Profile = () => {
             <div className="flex flex-col  text-white gap-2 font-[Fredoka]">
               <p className="text-3xl">Hi {user.name} !</p>
               <p>Your team Id is {user.teamId}</p>
+              <p>You should have the id </p>
             </div>
             <Pane>
               <Dialog
