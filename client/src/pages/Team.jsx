@@ -123,71 +123,7 @@ const Team = () => {
                   );
                 })}
               </div>
-              <div className="flex flex-col gap-5 font-[Fredoka] text-white">
-                <p className="text-xl">
-                  Registraion fee for your team in{" "}
-                  <span className="text-2xl font-semibold text-nowrap">
-                    Rs. {teamMembers * 150}
-                  </span>{" "}
-                </p>
-              </div>
-              <div>
-                {data.payment?.image?.data ? (
-                  <>
-                    <p className="font-[Fredoka] text-white text-3xl text-center">
-                      You're Already Registered
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <div className="">
-                      <form
-                        action=""
-                        onSubmit={handelSubmit}
-                        className="flex flex-col gap-5"
-                      >
-                        <div className="flex justify-center">
-                          <img
-                            src={scanner}
-                            alt="payment scanner image"
-                            className="w-[70%] lg:w-[30%]"
-                          />
-                        </div>
-                        <p className="font-[Fredoka] text-white">
-                          Please upload the screenshot of the payment image
-                        </p>
-                        <input
-                          type="file"
-                          name="screensshot"
-                          accept="image/*"
-                          id=""
-                          className="border border-white shadow-md shadow-white px-5 py-3 text-white font-[Fredoka] rounded-lg "
-                          onChange={(e) => {
-                            setFile(e.target.files[0]);
-                          }}
-                        />
-
-                        <button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className={` px-4 py-2 text-white font-medium rounded-md ${
-                            isLoading
-                              ? "bg-blue-300"
-                              : "border border-white shadow-md shadow-white px-5 py-3 text-white font-[Fredoka] rounded-lg"
-                          } focus:outline-none`}
-                        >
-                          {isSubmitting ? "Uploading..." : "Upload"}
-                        </button>
-                        <div>
-                          <p className="font-[Fredoka] text-white text-2xl text-center">
-                            {message}
-                          </p>
-                        </div>
-                      </form>
-                    </div>
-                  </>
-                )}
-              </div>
+              
             </>
           )}
         </div>
