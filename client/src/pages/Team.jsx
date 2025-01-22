@@ -14,17 +14,30 @@ const Team = () => {
   const token = localStorage.getItem("token");
   const componentRef = useRef();
 
-  const handleDownloadPdf = async () => {
+  const generatePDF = async () => {
     const element = componentRef.current;
-    const canvas = await html2canvas(element);
-    const imgData = canvas.toDataURL("image/png");
 
-    const pdf = new jsPDF("portrait", "mm", "a4");
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+    try {
+      // Render the component as a canvas
+      const canvas = await html2canvas(element, {
+        scale: 2, // Improves quality
+      });
 
-    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save(user.name + " team's id.pdf");
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF({
+        orientation: "portrait", // or "landscape"
+        unit: "px", // Use pixels
+        format: [canvas.width, canvas.height], // Dynamic format
+      });
+
+      // Add the image to the PDF
+      pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+
+      // Save the PDF
+      pdf.save("component.pdf");
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+    }
   };
 
   const [data, setData] = useState([]);
@@ -108,12 +121,12 @@ const Team = () => {
                   );
                 })}
               </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 ">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 " ref={componentRef}>
                 {data.teamMember?.map((e) => {
                   return (
                     <>
                     <div className="flex flex-col justify-center gap-5">
-                    <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 lg:px-5 px-3 rounded-lg shadow-md shadow-white mx-auto" ref={componentRef}>
+                    <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 lg:px-5 px-3 rounded-lg shadow-md shadow-white mx-auto" >
                         <div className="flex flex-col gap-5 text-white">
                           <p className="font-[Fredoka]  text-center font-bold text-xl lg:text-2xl  text-[#fbe072]">
                             DEPARTMENT OF COMPUTER SCIENCE
@@ -156,18 +169,19 @@ const Team = () => {
                        
                         
                       </div>
-                      <button
-                        onClick={handleDownloadPdf}
-                        className="px-5 py-2 border-white border shadow-white shadow-md text-white font-[Fredoka] rounded-lg"
-                      >
-                        Click to get your ID
-                      </button>
+                     
                     </div>
                       
                       
                     </>
                   );
                 })}
+                 <button
+                        onClick={generatePDF}
+                        className="px-5 py-2 border-white border shadow-white shadow-md text-white font-[Fredoka] rounded-lg"
+                      >
+                        Click to get your ID
+                      </button>
               </div>
             </>
           )}
