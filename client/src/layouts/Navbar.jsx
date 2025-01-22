@@ -34,6 +34,9 @@ const Navbar = () => {
             <li>
               <a href="#schedule">Schedule</a>
             </li>
+            <li>
+              <a href="#contact">Contact Us</a>
+            </li>
 
             <li>
               {user ? (
@@ -94,10 +97,10 @@ const Navbar = () => {
                   <a href="#about">About</a>
                 </li>
                 <li>
-                  <a href="#event">Event</a>
+                  <a href="#schedule">Schedule</a>
                 </li>
                 <li>
-                  <a href="#schedule">Schedule</a>
+                  <a href="#contact">Contact Us</a>
                 </li>
                 {user ? (
                 <>

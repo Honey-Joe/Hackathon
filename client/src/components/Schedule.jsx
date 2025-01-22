@@ -75,22 +75,13 @@ const Schedule = () => {
             </div>
 
             <div className=' flex justify-center pt-10'>
-                {/* <button className=' px-6 py-3 bg-white/10 backdrop-blur-md text-white rounded-lg shadow-lg border border-white/20 transition-transform transform hover:scale-105 hover:bg-white/20'>
-                    <a
-                    href="WebSprint-Hackaton.pdf"
-                    download="WebSprint-Hackaton.pdf"
-                    className=' text-white text-2xl font-[Fredoka] '
-                    >
-                    Rules and Guidelines
-                    </a>
-                </button> */}
                 <a
                     href="WebSprint-Hackaton.pdf"
                     download="WebSprint-Hackaton.pdf"
                     className=' text-white font-[Fredoka] '
                     >
                     <button className="px-8 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg rounded-full shadow-lg hover:shadow-xl transform transition-transform hover:scale-105">
-                        Rules and Guidelines
+                        Rules and Guidelines (Click here to download)
                     </button>
                 </a>
 
