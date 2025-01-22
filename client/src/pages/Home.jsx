@@ -7,6 +7,7 @@ import Map from '../components/Map/Map'
 import ScrollToTopButton from '../components/ScrollToTopButton'
 import Schedule from '../components/Schedule'
 import Rules from '../components/RulesGuidelines/Rules'
+import Contact from '../components/Contact'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         <About></About>
         <Schedule/>
         <Rules/>
+        <Contact/>
         <Map></Map>
       </Layout>
     </div>
