@@ -81,11 +81,11 @@ const Team = () => {
                   return (
                     <>
                       <div className="flex font-[Fredoka]  flex-col items-start gap-3 bg-white border-black  border-2 py-5 px-5 rounded-lg shadow-md shadow-white">
-                        <div className="grid grid-cols-2 font-[Fredoka]">
+                        <div className="flex gap-3 ">
                           <p>Name:</p>
                           {e.name}
                         </div>
-                        <div className="grid grid-cols-2">
+                        <div className="flex gap-5">
                           <p>Email:</p>
                           {e.email}
                         </div>
@@ -93,7 +93,7 @@ const Team = () => {
                           <p>Contact:</p>
                           {e.contact}
                         </div>
-                        <div className="grid grid-cols-2">
+                        <div className="flex gap-5">
                           <p>Department No.</p>
                           {e.degree}
                         </div>
