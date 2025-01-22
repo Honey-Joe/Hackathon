@@ -17,7 +17,6 @@ const Home = () => {
         <About></About>
         <Schedule/>
         <Rules/>
-        <Faq></Faq>
         <Map></Map>
       </Layout>
     </div>
