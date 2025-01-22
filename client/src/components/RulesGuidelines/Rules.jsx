@@ -21,6 +21,9 @@ const Rules = () => {
                                     <ul className=' list-disc ml-5'>
                                         <li className=' text-white font-[Fredoka] py-1'>{e.desc1}</li>
                                         <li className=' text-white font-[Fredoka] py-1'>{e.desc}</li>
+                                        {e.desc5 ?
+                                        <li className=' text-white font-[Fredoka] py-1'>{e.desc5}</li> :''
+                                        }
                                         {
                                             e.desc4 ?
                                             <div>
