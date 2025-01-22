@@ -113,7 +113,7 @@ const Team = () => {
                   return (
                     <>
                       <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 px-5 rounded-lg shadow-md shadow-white mx-auto" ref={componentRef}>
-                        <div className="flex flex-col gap-5 w-full mx-auto text-white">
+                        <div className="flex flex-col gap-5 w-full  text-white">
                           <p className="font-[Fredoka]  text-center font-bold text-2xl text-[#fbe072]">
                             DEPARTMENT OF COMPUTER SCIENCE
                           </p>
@@ -126,7 +126,7 @@ const Team = () => {
                             WebSprint'25
                           </p>
                         </div>
-                        <div className="grid grid-cols-1 justify-start items-center w-[80%] gap-3 mx-auto text-white">
+                        <div className="grid grid-cols-1 justify-start items-center w-[90%] gap-3 mx-auto text-white">
                         <div className="grid grid-cols-2">
                           <p>Team Id:</p>
                           {user.teamId}
