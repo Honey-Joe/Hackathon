@@ -112,13 +112,13 @@ const Team = () => {
                 {data.teamMember?.map((e) => {
                   return (
                     <>
-                      <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 px-5 rounded-lg shadow-md shadow-white mx-auto" ref={componentRef}>
-                        <div className="flex flex-col gap-5 w-full  text-white">
-                          <p className="font-[Fredoka]  text-center font-bold text-2xl text-[#fbe072]">
+                      <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 lg:px-5 px-3 rounded-lg shadow-md shadow-white" ref={componentRef}>
+                        <div className="flex flex-col gap-5 text-white">
+                          <p className="font-[Fredoka]  text-center font-bold text-xl lg:text-2xl  text-[#fbe072]">
                             DEPARTMENT OF COMPUTER SCIENCE
                           </p>
                           <div className=" flex flex-col items-center gap-0">
-                            <p className="font-[Poppins] font-medium text-lg text-center">
+                            <p className="font-[Poppins] font-medium text-base lg:text-lg text-center">
                               St. Joseph's College (Autonomous)
                             </p>
                           </div>
