@@ -108,11 +108,12 @@ const Team = () => {
                   );
                 })}
               </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 ">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 ">
                 {data.teamMember?.map((e) => {
                   return (
                     <>
-                      <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 lg:px-5 px-3 rounded-lg shadow-md shadow-white" ref={componentRef}>
+                    <div className="flex flex-col justify-center gap-5">
+                    <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 lg:px-5 px-3 rounded-lg shadow-md shadow-white mx-auto" ref={componentRef}>
                         <div className="flex flex-col gap-5 text-white">
                           <p className="font-[Fredoka]  text-center font-bold text-xl lg:text-2xl  text-[#fbe072]">
                             DEPARTMENT OF COMPUTER SCIENCE
@@ -152,15 +153,18 @@ const Team = () => {
                           {e.degree}
                         </div>
                         </div>
-                        <button
+                       
+                        
+                      </div>
+                      <button
                         onClick={handleDownloadPdf}
                         className="px-5 py-2 border-white border shadow-white shadow-md text-white font-[Fredoka] rounded-lg"
                       >
                         Click to get your ID
                       </button>
-                        
-                      </div>
-                     
+                    </div>
+                      
+                      
                     </>
                   );
                 })}
