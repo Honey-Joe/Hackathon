@@ -15,6 +15,7 @@ const userSchema = new mongoose.Schema(
     college: { type: String, required: true },
     dept: { type: String, required: true },
     contact: { type: String, required: true },
+    teamId : {type:String , required:true},
     teamMember:[teamMemberSchema],
     payment:{image:{
       data:Buffer,
@@ -27,6 +28,13 @@ const userSchema = new mongoose.Schema(
 userSchema.methods.matchpassword = async function (enterpassword) {
   return await bcrypt.compare(enterpassword, this.password);
 };
+userSchema.pre("save", function (next) {
+  if (!this.teamId) {
+    const uniqueCode = Math.random().toString(36).substring(2, 7).toUpperCase(); // Generate a random 5-character code
+    this.teamId = `WS-${uniqueCode}`;
+  }
+  next();
+});
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
