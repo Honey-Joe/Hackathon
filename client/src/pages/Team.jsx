@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BASE_URL } from "../BASE_URL";
 import Layout from "../layouts/Layout";
 import { Link } from "react-router-dom";
@@ -7,41 +7,26 @@ import ScrollToTopButton from "../components/ScrollToTopButton";
 import DeleteTeamMember from "../components/DeleteTeamMember";
 import Loader from "../components/Loader";
 import { scanner } from "../assets/asset";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const Team = () => {
   const token = localStorage.getItem("token");
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [message, setMessage] = useState("");
-    const [file, setFile] = useState(null);
-    
-  const handelSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    if (!file) {
-      setIsSubmitting(false);
-      setMessage("Please upload the File");
-    }
+  const componentRef = useRef();
 
-    const formData = new FormData();
-    formData.append("paymentImage", file);
+  const handleDownloadPdf = async () => {
+    const element = componentRef.current;
+    const canvas = await html2canvas(element);
+    const imgData = canvas.toDataURL("image/png");
 
-    try {
-      const response = await axios.put(
-        BASE_URL + `/api/users/payment/${user.id}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      setMessage(response.data.message);
-    } catch (error) {
-      setError(error.response.data.message);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };  
+    const pdf = new jsPDF("portrait", "mm", "a4");
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save(user.name+"id.pdf");
+  };
+
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -95,7 +80,10 @@ const Team = () => {
                 {data.teamMember?.map((e) => {
                   return (
                     <>
-                      <div className="flex font-[Fredoka]  flex-col items-start gap-3 bg-white border-black  border-2 py-5 px-5 rounded-lg shadow-md shadow-white">
+                      <div
+                        ref={componentRef}
+                        className="flex font-[Fredoka]  flex-col items-start gap-3 bg-white border-black  border-2 py-5 px-5 rounded-lg shadow-md shadow-white"
+                      >
                         <div className="flex justify-evenly gap-5 font-[Fredoka]">
                           <p>Name:</p>
                           {e.name}
@@ -118,12 +106,30 @@ const Team = () => {
                             memberId={e._id}
                           ></DeleteTeamMember>
                         </div>
+                        <button
+                          onClick={handleDownloadPdf}
+                          style={{ marginTop: "20px" }}
+                        >
+                          Download as PDF
+                        </button>
                       </div>
                     </>
                   );
                 })}
               </div>
-              
+              <div>
+                {
+                  data.teamMember?.map((e)=>{
+                    return(
+                      <>
+                        <div>
+                          
+                        </div>
+                      </>
+                    )
+                  })
+                }
+              </div>
             </>
           )}
         </div>

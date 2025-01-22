@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
     college: { type: String, required: true },
     dept: { type: String, required: true },
     contact: { type: String, required: true },
-    teamId : {type:String , required:true},
+    teamId : {type:String , unique:true},
     teamMember:[teamMemberSchema],
     payment:{image:{
       data:Buffer,
@@ -28,13 +28,39 @@ const userSchema = new mongoose.Schema(
 userSchema.methods.matchpassword = async function (enterpassword) {
   return await bcrypt.compare(enterpassword, this.password);
 };
-userSchema.pre("save", function (next) {
+userSchema.pre("save", async function (next) {
   if (!this.teamId) {
-    const uniqueCode = Math.random().toString(36).substring(2, 7).toUpperCase(); // Generate a random 5-character code
-    this.teamId = `WS-${uniqueCode}`;
+    try {
+      // Find the user with the latest teamId
+      const lastUser = await mongoose
+        .model("User")
+        .findOne({})
+        .sort({ createdAt: -1 })
+        .select("teamId");
+
+      // Extract the last 3 digits from the last teamId
+      let lastIdNumber = 99; // Start from 100
+      if (lastUser && lastUser.teamId) {
+        const match = lastUser.teamId.match(/WS-25(\d{3})/);
+        if (match) {
+          lastIdNumber = parseInt(match[1], 10);
+        }
+      }
+
+      // Increment the number
+      const nextIdNumber = lastIdNumber + 1;
+
+      // Generate the new teamId
+      this.teamId = `WS-25${String(nextIdNumber).padStart(3, "0")}`;
+      next();
+    } catch (error) {
+      next(error);
+    }
+  } else {
+    next();
   }
-  next();
 });
+
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {

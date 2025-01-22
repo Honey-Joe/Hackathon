@@ -29,6 +29,7 @@ const Admin = () => {
         },
       });
       setData(res.data);
+      console.log(res.data)
     } catch (error) {
       setError(error.response?.data?.message);
     } finally {
@@ -75,6 +76,10 @@ const Admin = () => {
                               }
                             >
                               <div className="flex justify-evenly gap-5 font-[Fredoka]">
+                                <p>Team ID:</p>
+                                {e.teamId}
+                              </div>
+                              <div className="flex justify-evenly gap-5 font-[Fredoka]">
                                 <p>Name:</p>
                                 {e.name}
                               </div>
@@ -94,14 +99,7 @@ const Admin = () => {
                                 <p>Contact:</p>
                                 {e.contact}
                               </div>
-                              <div className="flex justify-evenly gap-5">
-                                <p>Payment</p>
-                                {e.payment?.image?.data ? (
-                                  <>Paid</>
-                                ) : (
-                                  <>Not paid</>
-                                )}
-                              </div>
+                              
                               <div className="flex justify-evenly gap-5">
                                 <p>No. of Team Member:</p>
                                 {e.teamMember.length}
