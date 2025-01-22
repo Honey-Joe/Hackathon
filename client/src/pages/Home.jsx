@@ -6,6 +6,7 @@ import Faq from '../components/Faq/Faq'
 import Map from '../components/Map/Map'
 import ScrollToTopButton from '../components/ScrollToTopButton'
 import Schedule from '../components/Schedule'
+import Rules from '../components/RulesGuidelines/Rules'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <Header></Header>
         <About></About>
         <Schedule/>
+        <Rules/>
         <Faq></Faq>
         <Map></Map>
       </Layout>

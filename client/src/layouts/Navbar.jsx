@@ -35,6 +35,9 @@ const Navbar = () => {
               <a href="#schedule">Schedule</a>
             </li>
             <li>
+              <a href="#rules">Rules</a>
+            </li>
+            <li>
               <a href="#contact">Contact Us</a>
             </li>
 
@@ -98,6 +101,9 @@ const Navbar = () => {
                 </li>
                 <li>
                   <a href="#schedule">Schedule</a>
+                </li>
+                <li>
+                  <a href="#rules">Rules</a>
                 </li>
                 <li>
                   <a href="#contact">Contact Us</a>
