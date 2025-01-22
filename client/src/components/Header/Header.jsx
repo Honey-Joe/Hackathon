@@ -21,9 +21,15 @@ const Header = () => {
                 DEPARTMENT OF COMPUTER SCIENCE
               </p>
 
-              <p className="font-[Poppins] font-medium text-[18px] lg:text-[28px]">
-                St. Joseph's College (Autonomous)
-              </p>
+              <div className=" flex flex-col items-center gap-0">
+                <p className="font-[Poppins] font-medium text-[18px] lg:text-[28px]">
+                  St. Joseph's College (Autonomous)
+                </p>
+                <p >in</p>
+                <p className="font-[Poppins] font-medium text-[18px] md:text-base italic">Collaboration with ZWORK Technology, Trichy-620021	Organizes</p>
+
+              </div>
+
               <p className="font-[Stylish] text-[26px] mt-3 text-[#fbe072]">
                 Cordiallly invites you
               </p>
