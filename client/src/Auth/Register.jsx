@@ -65,10 +65,10 @@ const Register = () => {
       <Layout>
         <div className="w-[90%] lg:w-[70%] mx-auto grid grid-cols-1 gap-10 py-24">
           <div className="flex flex-col gap-2 text-white">
-            <p className="text-white font-[Fredoka] text-3xl lg:text-4xl ">
+            <p className="text-white font-[Stylish] text-3xl lg:text-[45px]  text-center pt-5">
               Welcome to WebSprint'25
             </p>
-            <p className="font-[Fredoka] text-white">
+            <p className="font-[Fredoka] text-white text-center">
               Please Register yourself to take part in the WebSprint'25
             </p>
           </div>

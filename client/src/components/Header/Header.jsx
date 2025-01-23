@@ -41,10 +41,13 @@ const Header = () => {
                   <p className="text-white font-[Poppins] text-center">
                     A State Level Intercollegiate Hackathon
                   </p>
+                  <p className="font-[Poppins] text-center text-lg md:text-2xl pt-5 text-[#fbe072]">
+                    05:02:2025
+                  </p>
                 </div>
                 <div>
                   <span></span>
-                  <CountdownTimer></CountdownTimer>
+                  {/* <CountdownTimer></CountdownTimer> */}
                 </div>
                 <div className="flex justify-center mt-10  lg:mt-0 lg:pt-0 ">
                   <Link to={"/register"}>

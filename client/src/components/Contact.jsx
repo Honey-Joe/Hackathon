@@ -22,6 +22,8 @@ const Contact = () => {
                         <li className=' text-white font-[Fredoka] '> Mr. Ajay James  </li>
                         <li className=' text-white font-[Fredoka] '> Mr. Karan Marshall </li>
                         <li className=' text-white font-[Fredoka] '> Mr. Eugene Rajkumar </li>
+                        <li className=' text-white font-[Fredoka] '> Mr. Tamilarasan </li>
+                        <li className=' text-white font-[Fredoka] '> Mr. Jeeva </li>
                     </ul>
                 </div>
 

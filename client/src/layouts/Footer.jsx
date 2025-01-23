@@ -8,7 +8,7 @@ const Footer = () => {
 
           <div className='flex flex-col gap-5 text-white font-[Fredoka]'>
             <div>
-              <p className='text-[24px]'>WebSprint'25</p>
+              <p className='text-[34px] font-[Stylish]'>WebSprint'25</p>
             </div>
             <div>
               <p>The Hackathon at St. Joseph's College was a dynamic event centered around web development, designed to inspire creativity and foster innovation among students. This 6-hour competition brought together tech enthusiasts, designers, and developers to collaboratively tackle real-world challenges and create impactful solutions.</p>
