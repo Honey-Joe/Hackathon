@@ -58,7 +58,7 @@ const Login = () => {
             >
               <div className="flex flex-col gap-5 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg  drop-shadow-2xl shadow-white">
                 <div className="flex justify-center w-full">
-                  <p className="font-[Fredoka] text-center text-2xl text-white">Welcome to WebSprint'25</p>
+                  <p className="font-[Fredoka] text-center text-2xl text-white">Welcome to <span className=" font-[Stylish]">WebSprint'25  </span></p>
                 </div>
                 <div className="flex justify-center w-full">
                   <p className="font-[Fredoka] text-center text-xl text-white">Login</p>

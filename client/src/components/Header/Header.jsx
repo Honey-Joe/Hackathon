@@ -42,6 +42,7 @@ const Header = () => {
                     A State Level Intercollegiate Hackathon
                   </p>
                   <p className="font-[Poppins] text-center text-lg md:text-2xl pt-5 text-[#fbe072]">
+                    <span className=" text-lg">on</span> <br />
                     05:02:2025
                   </p>
                 </div>
