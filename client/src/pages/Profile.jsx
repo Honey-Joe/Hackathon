@@ -95,9 +95,11 @@ const Profile = () => {
       <Layout>
         <ScrollToTopButton></ScrollToTopButton>
         <div className="w-[90%] lg:w-[70%] mx-auto py-[150px] grid grid-cols-1 gap-5">
-          <div className="flex justify-between gap-3">
+          <div className="flex justify-between gap-3 flex-wrap">
             <div className="flex flex-col  text-white gap-2 font-[Fredoka]">
               <p className="text-3xl">Hi {user.name} !</p>
+              <p>Your team Id is {user.teamId}</p>
+              <p>You should have the id </p>
             </div>
             <Pane>
               <Dialog

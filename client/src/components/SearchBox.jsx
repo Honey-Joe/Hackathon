@@ -61,6 +61,8 @@ const SearchBox = () => {
             filteredUsers.map((user) => (
               <div key={user._id} className="p-4 hover:bg-gray-100 cursor-pointer">
                 <Link to={"/admin/"+user._id}>
+
+                <div className="font-semibold text-lg">{user.teamId}</div>
                 <div className="font-semibold text-lg">{user.name}</div>
                 <div className="text-gray-500">{user.email}</div>
                 <div className="text-sm text-gray-400">College: {user.college}</div>

@@ -17,6 +17,8 @@ userRoutes.post(
         name: user.name,
         email: user.email,
         password: user.password,
+        teamId:user.teamId,
+        college:user.college,
         isadmin: user.isadmin,
         createdAt: user.createdAt,
         contact: user.contact,

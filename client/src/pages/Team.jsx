@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BASE_URL } from "../BASE_URL";
 import Layout from "../layouts/Layout";
 import { Link } from "react-router-dom";
@@ -7,41 +7,39 @@ import ScrollToTopButton from "../components/ScrollToTopButton";
 import DeleteTeamMember from "../components/DeleteTeamMember";
 import Loader from "../components/Loader";
 import { scanner } from "../assets/asset";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const Team = () => {
   const token = localStorage.getItem("token");
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [message, setMessage] = useState("");
-    const [file, setFile] = useState(null);
-    
-  const handelSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    if (!file) {
-      setIsSubmitting(false);
-      setMessage("Please upload the File");
-    }
+  const componentRef = useRef();
 
-    const formData = new FormData();
-    formData.append("paymentImage", file);
+  const generatePDF = async () => {
+    const element = componentRef.current;
 
     try {
-      const response = await axios.put(
-        BASE_URL + `/api/users/payment/${user.id}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      setMessage(response.data.message);
+      // Render the component as a canvas
+      const canvas = await html2canvas(element, {
+        scale: 2, // Improves quality
+      });
+
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF({
+        orientation: "portrait", // or "landscape"
+        unit: "px", // Use pixels
+        format: [canvas.width, canvas.height], // Dynamic format
+      });
+
+      // Add the image to the PDF
+      pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+
+      // Save the PDF
+      pdf.save(user.name+" team's id.pdf");
     } catch (error) {
-      setError(error.response.data.message);
-    } finally {
-      setIsSubmitting(false);
+      console.error("Error generating PDF:", error);
     }
-  };  
+  };
+
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -96,19 +94,19 @@ const Team = () => {
                   return (
                     <>
                       <div className="flex font-[Fredoka]  flex-col items-start gap-3 bg-white border-black  border-2 py-5 px-5 rounded-lg shadow-md shadow-white">
-                        <div className="flex justify-evenly gap-5 font-[Fredoka]">
+                        <div className="flex gap-3 ">
                           <p>Name:</p>
                           {e.name}
                         </div>
-                        <div className="flex justify-evenly gap-5">
+                        <div className="flex gap-5">
                           <p>Email:</p>
                           {e.email}
                         </div>
-                        <div className="flex justify-evenly gap-5">
+                        <div className="grid grid-cols-2">
                           <p>Contact:</p>
                           {e.contact}
                         </div>
-                        <div className="flex justify-evenly gap-5">
+                        <div className="flex gap-5">
                           <p>Department No.</p>
                           {e.degree}
                         </div>
@@ -123,7 +121,68 @@ const Team = () => {
                   );
                 })}
               </div>
-              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 " ref={componentRef}>
+                {data.teamMember?.map((e) => {
+                  return (
+                    <>
+                    <div className="flex flex-col justify-center gap-5">
+                    <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 lg:px-5 px-3 rounded-lg shadow-md shadow-white mx-auto" >
+                        <div className="flex flex-col gap-5 text-white">
+                          <p className="font-[Fredoka]  text-center font-bold text-xl lg:text-2xl  text-[#fbe072]">
+                            DEPARTMENT OF COMPUTER SCIENCE
+                          </p>
+                          <div className=" flex flex-col items-center gap-0">
+                            <p className="font-[Poppins] font-medium text-base lg:text-lg text-center">
+                              St. Joseph's College (Autonomous)
+                            </p>
+                          </div>
+                          <p className="text-3xl text-center font-[Stylish] ">
+                            WebSprint'25
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-1 justify-start items-center w-[90%] gap-3 mx-auto text-white">
+                        <div className="grid grid-cols-2">
+                          <p>Team Id:</p>
+                          {user.teamId}
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <p>Name:</p>
+                          {e.name}
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <p>College:</p>
+                          {user.college}
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <p>Email:</p>
+                          {e.email}
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <p>Contact:</p>
+                          {e.contact}
+                        </div>
+                        <div className="grid grid-cols-2">
+                          <p>Department No.</p>
+                          {e.degree}
+                        </div>
+                        </div>
+                       
+                        
+                      </div>
+                     
+                    </div>
+                      
+                      
+                    </>
+                  );
+                })}
+                 <button
+                        onClick={generatePDF}
+                        className="px-5 py-2 border-white border shadow-white shadow-md text-white font-[Fredoka] rounded-lg"
+                      >
+                        Click to get your ID
+                      </button>
+              </div>
             </>
           )}
         </div>
