@@ -8,9 +8,8 @@ import Layout from "../layouts/Layout";
 const Login = () => {
   const [token, setToken] = useState();
   const navigate = useNavigate();
-  const  [error,setError] = useState("")
-    const [isLoading, setIsLoading] = useState(false);
-  
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -20,7 +19,7 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
       const response = await axios.post(BASE_URL + "/api/users/login", data);
       setToken(response.data.token);
@@ -35,8 +34,8 @@ const Login = () => {
       }
       reset();
     } catch (error) {
-      setError(error.response.data.message)
-    }finally{
+      setError(error.response.data.message);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -58,10 +57,15 @@ const Login = () => {
             >
               <div className="flex flex-col gap-5 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg  drop-shadow-2xl shadow-white">
                 <div className="flex justify-center w-full">
-                  <p className="font-[Fredoka] text-center text-2xl text-white">Welcome to <span className=" font-[Stylish]">WebSprint'25  </span></p>
+                  <p className="font-[Fredoka] text-center text-2xl text-white">
+                    Welcome to{" "}
+                    <span className=" font-[Stylish]">WebSprint'25 </span>
+                  </p>
                 </div>
                 <div className="flex justify-center w-full">
-                  <p className="font-[Fredoka] text-center text-xl text-white">Login</p>
+                  <p className="font-[Fredoka] text-center text-xl text-white">
+                    Login
+                  </p>
                 </div>
 
                 <div className="flex gap-2  flex-col justify-center w-full">
@@ -90,23 +94,36 @@ const Login = () => {
                   />
                   <p className=" text-white">{errors?.password?.message}</p>
                 </div>
-                <div className="font-[Fredoka] text-red-500 text-lg">{error}</div>
-                <div className=" w-full">
-              <button
-                type="submit"
-                disabled={isLoading}
-                className={`w-full px-4 py-2 text-white font-medium rounded-md ${
-                  isLoading ? "bg-blue-300" : "bg-blue-600 hover:bg-blue-700"
-                } focus:outline-none`}
-              >
-                {isLoading ? "Logging in..." : "Login"}
-              </button>
+                <div className="font-[Fredoka] text-red-500 text-lg">
+                  {error}
                 </div>
-                <Link to={"/register"}>
-                  <p className=" text-start text-sm underline text-white">
-                    Clink here to register
+                <div className=" w-full">
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className={`w-full px-4 py-2 text-white font-medium rounded-md ${
+                      isLoading
+                        ? "bg-blue-300"
+                        : "bg-blue-600 hover:bg-blue-700"
+                    } focus:outline-none`}
+                  >
+                    {isLoading ? "Logging in..." : "Login"}
+                  </button>
+                </div>
+                <div>
+                  <p className="font-[Fredoka] text-white">
+                    Forget Password ? Contact Registration Team !
                   </p>
-                </Link>
+                </div>
+                <div className="flex justify-between  w-full">
+                  <div>
+                    <Link to={"/register"}>
+                      <p className=" text-start text-sm underline text-white">
+                        Clink here to register
+                      </p>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </form>
           </div>
@@ -115,7 +132,5 @@ const Login = () => {
     </>
   );
 };
-
-
 
 export default Login;
