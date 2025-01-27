@@ -1,3 +1,4 @@
+import { Phone } from 'lucide-react'
 import React from 'react'
 
 const Contact = () => {
@@ -24,6 +25,9 @@ const Contact = () => {
                         <li className=' text-white font-[Fredoka] '> Mr. Eugene Rajkumar </li>
                         <li className=' text-white font-[Fredoka] '> Mr. Tamilarasan </li>
                         <li className=' text-white font-[Fredoka] '> Mr. Jeeva </li>
+                        <li className=' text-white font-[Fredoka] '> 
+                            <a href="tel:+918825863892">Ms. Vincy Mega</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -31,16 +35,17 @@ const Contact = () => {
                     <p className=' text-white font-medium text-2xl pb-2 font-[Fredoka]'>Registration queries</p>
                     <ul className=' flex flex-col gap-2 items-center justify-center pt-2'>
                         <li className=' text-white font-[Fredoka] '> 
-                            <a href="tel:+918825863892">Mr. Manoj - 8825863892</a>
+                            <a href="tel:+918825863892" className='flex gap-2'><Phone></Phone> Mr. Manoj - 8825863892</a>
                         </li>
+                        
                         <li className=' text-white font-[Fredoka] '> 
-                            <a href="tel:+916382503265">Mr. Honey Joe - 6382503265</a>
+                            <a href="tel:+916382503265" className='flex gap-2'><Phone></Phone> Mr. Honey Joe - 6382503265</a>
                         </li>
                         <li className=' text-white font-[Fredoka] '>
-                            <a href="tel:+918072146078">Mr. Sudharsan - 8072146078</a>
+                            <a href="tel:+918072146078" className='flex gap-2'> <Phone></Phone> Mr. Sudharsan - 8072146078</a>
                         </li>
                         <li className=' text-white font-[Fredoka] '>
-                            <a href="tel:+918903369700">Mr. Infant Ryan - 8903369700</a>
+                            <a href="tel:+918903369700" className='flex gap-2'><Phone></Phone> Mr. Infant Ryan - 8903369700</a>
                         </li>
                     </ul>
                 </div>

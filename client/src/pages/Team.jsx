@@ -143,19 +143,27 @@ const Team = () => {
                         <div className="grid grid-cols-1 justify-start items-center w-[90%] gap-3 mx-auto text-white">
                         <div className="grid grid-cols-2">
                           <p>Team Id:</p>
+                          <p className="text-wrap">
                           {user.teamId}
+                          </p>
                         </div>
                         <div className="grid grid-cols-2">
                           <p>Name:</p>
+                          <p className="text-wrap">
                           {e.name}
+                          </p>
                         </div>
                         <div className="grid grid-cols-2">
                           <p>College:</p>
+                          <p className="text-wrap">
                           {user.college}
+                          </p>
                         </div>
-                        <div className="grid grid-cols-2">
+                        <div className="flex flex-wrap justify-between">
                           <p>Email:</p>
-                          {e.email}
+                          <p className="flex flex-wrap">
+                          <span className="flex flex-wrap">{e.email}</span> 
+                          </p>
                         </div>
                         <div className="grid grid-cols-2">
                           <p>Contact:</p>
@@ -176,13 +184,14 @@ const Team = () => {
                     </>
                   );
                 })}
-                 <button
+                 
+              </div>
+              <button
                         onClick={generatePDF}
                         className="px-5 py-2 border-white border shadow-white shadow-md text-white font-[Fredoka] rounded-lg"
                       >
                         Click to get your ID
                       </button>
-              </div>
             </>
           )}
         </div>

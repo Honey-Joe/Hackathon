@@ -99,7 +99,8 @@ const Profile = () => {
             <div className="flex flex-col  text-white gap-2 font-[Fredoka]">
               <p className="text-3xl">Hi {user.name} !</p>
               <p>Your team Id is {user.teamId}</p>
-              <p>You should have the id </p>
+              <p className="text-2xl font-semibold">Register yourself to get ID card for yourself.</p>
+              <p className="text-xl">Bring the ID Card on event day as softcopy and also as photo copy</p>
             </div>
             <Pane>
               <Dialog
