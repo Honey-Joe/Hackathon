@@ -43,7 +43,7 @@ function DisplayPaymentImage({ userId }) {
               <img
                 src={imageSrc}
                 alt="Payment"
-                className="w-[200px] h-[200px]"
+                className=""
               />
             ) : (
               <p>Loading...</p>

@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import Team from "./Team";
 import { Button, Dialog, Pane } from "evergreen-ui";
-import UpdatePayment from "./Payment";
+import WhatsAppJoinButton from "../components/WhatsAppJoin";
 
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -19,46 +19,14 @@ const Profile = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isShown, setIsShown] = useState(false);
-  const [file, setFile] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState("");
   const schema = z.object({
     email: z.string().email(),
     name: z.string().min(1, { message: "Enter your Name" }),
     degree: z.string().min(1, { message: "Enter your Department" }),
     contact: z.string().min(10, { message: "Enter correct phone number" }),
-
     // Other fields like password can be added here
   });
-  const handelSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    if (!file) {
-      setIsSubmitting(false);
-      setMessage("Please upload the File");
-    }
-
-    const formData = new FormData();
-    formData.append("paymentImage", file);
-
-    try {
-      const response = await axios.put(
-        BASE_URL + `/api/users/payment/${user.id}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      setMessage(response.data.message);
-    } catch (error) {
-      setError(error.response.data.message);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+  
   const {
     register,
     handleSubmit,
@@ -203,7 +171,13 @@ const Profile = () => {
             </Pane>
           </div>
           <Team></Team>
-          
+          <div>
+            <p className="font-[Fredoka] text-white text-xl">Update will be post on the WhatsApp group</p>
+          </div>
+          <WhatsAppJoinButton></WhatsAppJoinButton>
+          <div className="font-[Fredoka] text-white text-lg">
+            {user.payment?.image?.data?(<>You're Already Registerd</>):(<></>)}
+          </div>
         </div>
       </Layout>
     </div>

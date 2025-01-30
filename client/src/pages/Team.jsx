@@ -35,7 +35,7 @@ const Team = () => {
       pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
 
       // Save the PDF
-      pdf.save(user.name+" team's id.pdf");
+      pdf.save(user.name + " team's id.pdf");
     } catch (error) {
       console.error("Error generating PDF:", error);
     }
@@ -71,7 +71,7 @@ const Team = () => {
   return (
     <>
       <div className="bg-blue-950">
-        <div className=" grid grid-cols-1 gap-5 ">
+        <div className=" grid grid-cols-1 gap-5">
           <div className="text-white font-[Fredoka] flex flex-col gap-6">
             <p className="">Here is your team </p>
             <p className="text-xl">
@@ -122,82 +122,88 @@ const Team = () => {
                   );
                 })}
               </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 " ref={componentRef}>
+              <div
+                className="grid grid-cols-1 lg:grid-cols-2 gap-5 "
+                ref={componentRef}
+              >
                 {data.teamMember?.map((e) => {
                   return (
                     <>
-                    <div className="flex flex-col justify-center gap-5">
-                    <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 lg:px-5 px-3 rounded-lg shadow-md shadow-white mx-auto" >
-                        <div className="flex flex-col gap-5 text-white">
-                          <p className="font-[Fredoka]  text-center font-bold text-xl lg:text-2xl  text-[#fbe072]">
-                            DEPARTMENT OF COMPUTER SCIENCE
-                          </p>
-                          <div className=" flex flex-col items-center gap-0">
-                            <p className="font-[Poppins] font-medium text-base lg:text-lg text-center">
-                              St. Joseph's College (Autonomous)
+                      <div className="flex flex-col justify-center gap-5">
+                        <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 lg:px-5 px-3 rounded-lg shadow-md shadow-white mx-auto">
+                          <div className="flex flex-col gap-5 text-white">
+                            <p className="font-[Fredoka]  text-center font-bold text-xl lg:text-2xl  text-[#fbe072]">
+                              DEPARTMENT OF COMPUTER SCIENCE
+                            </p>
+                            <div className=" flex flex-col items-center gap-0">
+                              <p className="font-[Poppins] font-medium text-base lg:text-lg text-center">
+                                St. Joseph's College (Autonomous)
+                              </p>
+                            </div>
+                            <p className="text-3xl text-center font-[Stylish] ">
+                              WebSprint'25
                             </p>
                           </div>
-                          <p className="text-3xl text-center font-[Stylish] ">
-                            WebSprint'25
-                          </p>
+                          <div className="grid grid-cols-1 justify-start items-center w-[90%] gap-3 mx-auto text-white">
+                            <div className="grid grid-cols-2">
+                              <p>Team Id:</p>
+                              <p className="text-wrap">{user.teamId}</p>
+                            </div>
+                            <div className="flex flex-wrap gap-5">
+                              <p>Name:</p>
+                              <p className="text-wrap">{e.name}</p>
+                            </div>
+                            <div className="grid grid-cols-2">
+                              <p>College:</p>
+                              <p className="text-wrap">{user.college}</p>
+                            </div>
+                            <div className="flex flex-wrap justify-between">
+                              <p>Email:</p>
+                              <p className="flex flex-wrap">
+                                <span className="flex flex-wrap">
+                                  {e.email}
+                                </span>
+                              </p>
+                            </div>
+                            <div className="grid grid-cols-2">
+                              <p>Contact:</p>
+                              {e.contact}
+                            </div>
+                            <div className="grid grid-cols-2">
+                              <p>Department No.</p>
+                              {e.degree}
+                            </div>
+                            
+                          </div>
                         </div>
-                        <div className="grid grid-cols-1 justify-start items-center w-[90%] gap-3 mx-auto text-white">
-                        <div className="grid grid-cols-2">
-                          <p>Team Id:</p>
-                          <p className="text-wrap">
-                          {user.teamId}
-                          </p>
-                        </div>
-                        <div className="grid grid-cols-2">
-                          <p>Name:</p>
-                          <p className="text-wrap">
-                          {e.name}
-                          </p>
-                        </div>
-                        <div className="grid grid-cols-2">
-                          <p>College:</p>
-                          <p className="text-wrap">
-                          {user.college}
-                          </p>
-                        </div>
-                        <div className="flex flex-wrap justify-between">
-                          <p>Email:</p>
-                          <p className="flex flex-wrap">
-                          <span className="flex flex-wrap">{e.email}</span> 
-                          </p>
-                        </div>
-                        <div className="grid grid-cols-2">
-                          <p>Contact:</p>
-                          {e.contact}
-                        </div>
-                        <div className="grid grid-cols-2">
-                          <p>Department No.</p>
-                          {e.degree}
-                        </div>
-                        </div>
-                       
-                        
                       </div>
-                     
-                    </div>
-                      
-                      
                     </>
                   );
                 })}
-                 
               </div>
               <button
-                        onClick={generatePDF}
-                        className="px-5 py-2 border-white border shadow-white shadow-md text-white font-[Fredoka] rounded-lg"
-                      >
-                        Click to get your ID
-                      </button>
+                onClick={generatePDF}
+                className="px-5 py-2 border-white border shadow-white shadow-md text-white font-[Fredoka] rounded-lg"
+              >
+                Click to get your ID
+              </button>
+
+                <div className="flex gap-2 font-[Fredoka] text-white">
+                  <p>Registration fee for one person : Rs.150</p>
+                </div>
+              <div className="flex gap-2 font-[Fredoka] text-white text-xl">
+                <p>Registration fee for your team: </p>
+                <p>Rs.{teamMembers*150}</p>
+              </div>
+              <div>
+                
+              </div>
             </>
           )}
         </div>
         <UpdatePayment userId={user.id}></UpdatePayment>
       </div>
+      
     </>
   );
 };

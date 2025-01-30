@@ -9,6 +9,7 @@ import DeleteTeam from "../components/DeleteTeam";
 import FetchAllTeamMember from "../components/FetchAllTeamMember";
 import SearchBox from "../components/SearchBox";
 import ScrollToTop from "../components/ScrollTop";
+import DisplayPaymentImage from "./TeamImage";
 
 const Admin = () => {
   const [data, setData] = useState([]);
@@ -99,7 +100,10 @@ const Admin = () => {
                                 <p>Contact:</p>
                                 {e.contact}
                               </div>
-                              
+                              <div className="flex justify-evenly gap-5">
+                                <p>Payment:</p>
+                                {e.payment?(<>Paid</>):(<>Not paid</>)}
+                              </div>
                               <div className="flex justify-evenly gap-5">
                                 <p>No. of Team Member:</p>
                                 {e.teamMember.length}
@@ -114,6 +118,7 @@ const Admin = () => {
                                 <div>
                                 <DeleteTeam userId={e._id}></DeleteTeam>
                               </div>
+                              
                               </div>
                             </div>
                           </>

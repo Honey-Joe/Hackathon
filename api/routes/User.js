@@ -22,6 +22,7 @@ userRoutes.post(
         isadmin: user.isadmin,
         createdAt: user.createdAt,
         contact: user.contact,
+        payment:user.payment,
         teamMember: user.teamMember,
         token: generateToken(user.id),
       });

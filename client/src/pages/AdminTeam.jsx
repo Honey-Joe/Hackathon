@@ -120,6 +120,9 @@ const AdminTeam = () => {
                 )}
               </div>
             </div>
+            <div>
+                                <DisplayPaymentImage userId={data._id}></DisplayPaymentImage>
+                              </div>
           </div>
         </div>
       </Layout>
