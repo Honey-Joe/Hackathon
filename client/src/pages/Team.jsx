@@ -149,7 +149,7 @@ const Team = () => {
                               <p>Team Id:</p>
                               <p className="text-wrap">{user.teamId}</p>
                             </div>
-                            <div className="flex flex-wrap gap-5">
+                            <div className="grid grid-cols-2">
                               <p>Name:</p>
                               <p className="text-wrap">{e.name}</p>
                             </div>
