@@ -1,16 +1,16 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/User");
 const bodyParser = require("body-parser");
 const teamRoutes = require("./routes/Team");
+const cors = require("cors")
 const paymentRoutes = require("./routes/Payment");
 const app = express();
 dotenv.config();
+app.use(cors())
 app.use(bodyParser.json())
 app.use(express.json());
-app.use(cors());
 app.get("/",(req,res)=>{
     res.send("hi")
 })
