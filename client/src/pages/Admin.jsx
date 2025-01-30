@@ -105,7 +105,7 @@ const Admin = () => {
                                 {e.teamMember.length}
                               </div>
                              
-                              <div className="flex justify-between w-full">
+                              <div className="flex justify-between w-full gap-5">
                                 <Link to={"/admin/" + e._id}>
                                   <button className="bg-black px-5 py-2 rounded-lg text-white font-[Fredoka]">
                                     Team Details
