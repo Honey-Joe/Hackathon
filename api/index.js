@@ -4,11 +4,12 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/User");
 const bodyParser = require("body-parser");
 const teamRoutes = require("./routes/Team");
-const cors = require("cors")
 const paymentRoutes = require("./routes/Payment");
 const app = express();
 dotenv.config();
-app.use(cors())
+const cors = require('cors');
+app.use(cors({ origin: '*' })); // Allow all origins (for development)
+
   
 app.use(bodyParser.json())
 app.use(express.json());
