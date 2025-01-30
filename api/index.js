@@ -8,7 +8,10 @@ const cors = require("cors")
 const paymentRoutes = require("./routes/Payment");
 const app = express();
 dotenv.config();
-app.use(cors())
+app.use(cors({
+    origin: 'https://hackathon-25.vercel.app/'
+  }));
+  
 app.use(bodyParser.json())
 app.use(express.json());
 app.get("/",(req,res)=>{
