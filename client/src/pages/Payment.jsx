@@ -5,7 +5,7 @@ import { scanner } from '../assets/asset';
 
 function UpdatePayment({ userId }) {
   const [file, setFile] = useState(null);
-    const user = JSON.parse(localStorage.getItem("user"))
+  const [isLoading, setIsLoading]  = useState(false)
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -16,7 +16,7 @@ function UpdatePayment({ userId }) {
 
     const formData = new FormData();
     formData.append('paymentImage', file);
-
+    setIsLoading(true)
     try {
       const response = await axios.put(BASE_URL+`/api/users/payment/${userId}`, formData, {
         headers: {
@@ -27,6 +27,8 @@ function UpdatePayment({ userId }) {
     } catch (error) {
       console.error('Error updating payment image:', error);
       alert('Failed to update payment image');
+    }finally{
+      setIsLoading(false)
     }
   };
 
@@ -38,7 +40,9 @@ function UpdatePayment({ userId }) {
       </div>
       <form onSubmit={handleSubmit} className="flex gap-5 flex-wrap ">
         <input type="file" accept="image/*" onChange={handleFileChange} className="text-white px-5 py-5 border border-white rounded-lg " />
-        <button type="submit" className='font-[Fredoka] text-white border border-white rounded-lg px-7 py-5'>Upload</button>
+        <button type="submit" className='font-[Fredoka] text-white border border-white rounded-lg px-7 py-5'>{
+          isLoading? (<>Uploading...</>): (<>Upload</>)
+        }</button>
       </form>
     </div>
   );
