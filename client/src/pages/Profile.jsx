@@ -11,6 +11,7 @@ import Layout from "../layouts/Layout";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import Team from "./Team";
 import { Button, Dialog, Pane } from "evergreen-ui";
+import UpdatePayment from "./Payment";
 
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem("user"));

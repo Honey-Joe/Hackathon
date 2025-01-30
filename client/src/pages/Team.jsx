@@ -9,6 +9,7 @@ import Loader from "../components/Loader";
 import { scanner } from "../assets/asset";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import UpdatePayment from "./Payment";
 
 const Team = () => {
   const token = localStorage.getItem("token");
@@ -195,6 +196,7 @@ const Team = () => {
             </>
           )}
         </div>
+        <UpdatePayment userId={user.id}></UpdatePayment>
       </div>
     </>
   );
