@@ -36,9 +36,9 @@ function UpdatePayment({ userId }) {
       <div>
         <img src={scanner} alt="" />
       </div>
-      <form onSubmit={handleSubmit} className="flex gap-5">
+      <form onSubmit={handleSubmit} className="flex gap-5 flex-wrap ">
         <input type="file" accept="image/*" onChange={handleFileChange} className="text-white px-5 py-5 border border-white rounded-lg " />
-        <button type="submit" className='font-[Fredoka] text-white border border-white rounded-lg px-7'>Upload</button>
+        <button type="submit" className='font-[Fredoka] text-white border border-white rounded-lg px-7 py-5'>Upload</button>
       </form>
     </div>
   );
