@@ -173,7 +173,6 @@ const Team = () => {
                               <p>Department No.</p>
                               {e.degree}
                             </div>
-                            
                           </div>
                         </div>
                       </div>
@@ -188,22 +187,19 @@ const Team = () => {
                 Click to get your ID
               </button>
 
-                <div className="flex gap-2 font-[Fredoka] text-white">
-                  <p>Registration fee for one person : Rs.150</p>
-                </div>
+              <div className="flex gap-2 font-[Fredoka] text-white">
+                <p>Registration fee for one person : Rs.150</p>
+              </div>
               <div className="flex gap-2 font-[Fredoka] text-white text-xl">
                 <p>Registration fee for your team: </p>
-                <p>Rs.{teamMembers*150}</p>
+                <p>Rs.{teamMembers * 150}</p>
               </div>
-              <div>
-                
-              </div>
+              <div></div>
             </>
           )}
         </div>
         <UpdatePayment userId={user.id}></UpdatePayment>
       </div>
-      
     </>
   );
 };

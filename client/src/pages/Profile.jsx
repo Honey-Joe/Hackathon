@@ -26,7 +26,7 @@ const Profile = () => {
     contact: z.string().min(10, { message: "Enter correct phone number" }),
     // Other fields like password can be added here
   });
-  
+
   const {
     register,
     handleSubmit,
@@ -68,8 +68,13 @@ const Profile = () => {
             <div className="flex flex-col  text-white gap-2 font-[Fredoka]">
               <p className="text-3xl">Hi {user.name} !</p>
               <p>Your team Id is {user.teamId}</p>
-              <p className="text-2xl font-semibold">Register yourself to get ID card for yourself.</p>
-              <p className="text-xl">Bring the ID Card on event day as softcopy and also as photo copy</p>
+              <p className="text-2xl font-semibold">
+                Register yourself to get ID card for yourself.
+              </p>
+              <p className="text-xl">
+                Bring the ID Card on event day as softcopy and also as photo
+                copy
+              </p>
             </div>
             <Pane>
               <Dialog
@@ -172,11 +177,13 @@ const Profile = () => {
           </div>
           <Team></Team>
           <div>
-            <p className="font-[Fredoka] text-white text-xl">Update will be post on the WhatsApp group</p>
+            <p className="font-[Fredoka] text-white text-xl">
+              Update will be post on the WhatsApp group
+            </p>
           </div>
           <WhatsAppJoinButton></WhatsAppJoinButton>
           <div className="font-[Fredoka] text-white text-lg">
-            {user.payment?.image?.data?(<>You're Already Registerd</>):(<></>)}
+            {user.payment?.image?.data ? <>You're Already Registerd</> : <></>}
           </div>
         </div>
       </Layout>

@@ -16,7 +16,6 @@ const AdminTeam = () => {
   const componentRef = useRef();
   const user = JSON.parse(localStorage.getItem("user"));
 
-
   const generatePDF = async () => {
     const element = componentRef.current;
 
@@ -49,7 +48,7 @@ const AdminTeam = () => {
     }
 
     // Save the PDF
-    pdf.save(data.name+" team's id.pdf");
+    pdf.save(data.name + " team's id.pdf");
   };
   const [data, setData] = useState([]);
   const fetchdata = async () => {
@@ -115,14 +114,13 @@ const AdminTeam = () => {
                         );
                       })}
                     </div>
-                    
                   </>
                 )}
               </div>
             </div>
             <div>
-                                <DisplayPaymentImage userId={data._id}></DisplayPaymentImage>
-                              </div>
+              <DisplayPaymentImage userId={data._id}></DisplayPaymentImage>
+            </div>
           </div>
         </div>
       </Layout>

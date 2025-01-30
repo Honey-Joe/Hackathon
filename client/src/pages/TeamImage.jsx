@@ -40,11 +40,7 @@ function DisplayPaymentImage({ userId }) {
         <>
           <div className="mb-[200px]">
             {imageSrc ? (
-              <img
-                src={imageSrc}
-                alt="Payment"
-                className=""
-              />
+              <img src={imageSrc} alt="Payment" className="" />
             ) : (
               <p>Loading...</p>
             )}

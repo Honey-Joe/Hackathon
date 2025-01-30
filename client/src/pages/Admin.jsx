@@ -18,8 +18,7 @@ const Admin = () => {
   const token = localStorage.getItem("token");
   const [error, setError] = useState("");
   const user = JSON.parse(localStorage.getItem("user"));
-  
-  
+
   const fetchdata = async () => {
     setIsLoading(true);
     setError("");
@@ -30,7 +29,7 @@ const Admin = () => {
         },
       });
       setData(res.data);
-      console.log(res.data)
+      console.log(res.data);
     } catch (error) {
       setError(error.response?.data?.message);
     } finally {
@@ -102,13 +101,13 @@ const Admin = () => {
                               </div>
                               <div className="flex justify-evenly gap-5">
                                 <p>Payment:</p>
-                                {e.payment?(<>Paid</>):(<>Not paid</>)}
+                                {e.payment ? <>Paid</> : <>Not paid</>}
                               </div>
                               <div className="flex justify-evenly gap-5">
                                 <p>No. of Team Member:</p>
                                 {e.teamMember.length}
                               </div>
-                             
+
                               <div className="flex justify-between w-full gap-5">
                                 <Link to={"/admin/" + e._id}>
                                   <button className="bg-black px-5 py-2 rounded-lg text-white font-[Fredoka]">
@@ -116,9 +115,8 @@ const Admin = () => {
                                   </button>
                                 </Link>
                                 <div>
-                                <DeleteTeam userId={e._id}></DeleteTeam>
-                              </div>
-                              
+                                  <DeleteTeam userId={e._id}></DeleteTeam>
+                                </div>
                               </div>
                             </div>
                           </>
