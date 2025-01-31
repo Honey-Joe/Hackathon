@@ -45,7 +45,7 @@ const Admin = () => {
         <ScrollToTopButton></ScrollToTopButton>
         <ScrollToTop></ScrollToTop>
         <div>
-          <div className="w-[90%] lg:w-[65%] mx-auto grid grid-cols-1 h-full">
+          <div className="w-[90%] lg:w-[85%] mx-auto grid grid-cols-1 h-full">
             <div className="py-[120px] flex flex-col gap-6">
               <p className="font-[Fredoka] text-white text-2xl">
                 Hi {user.name} !
@@ -64,7 +64,7 @@ const Admin = () => {
                   </>
                 ) : (
                   <>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                       {data.map((e) => {
                         return (
                           <>
