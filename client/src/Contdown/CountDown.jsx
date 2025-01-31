@@ -3,7 +3,7 @@ import Countdown from 'react-countdown';
 
 // Helper function to get remaining time
 const getRemainingTime = (endTime) => {
-  const currentTime = 1736659296298;
+  const currentTime = 1738334112311;
   console.log(Date.now());
   return endTime - currentTime;
 };
@@ -26,7 +26,7 @@ const CountdownTimer = () => {
 
   // Function to start a new countdown
   const startCountdown = (durationInSeconds) => {
-    const newEndTime = 1736659296298 + durationInSeconds * 1000;
+    const newEndTime = 1738334112311    + durationInSeconds * 1000;
     setEndTime(newEndTime);
     localStorage.setItem('countdownEndTime', new Date(newEndTime).toISOString());
   };
@@ -77,7 +77,7 @@ const CountdownTimer = () => {
           onComplete={resetCountdown} // Reset when countdown finishes
         />
       ) : (
-        startCountdown(1641600)
+        startCountdown(432000)
       )}
 
       {endTime && <button className='hidden' onClick={resetCountdown}>Reset</button>}

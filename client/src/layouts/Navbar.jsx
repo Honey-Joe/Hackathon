@@ -15,7 +15,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className=" z-10 w-[100%]  lg:left-0 lg:top-0  lg:rounded-md  mx-auto px-5 lg:px-10 grid grid-cols-2 lg:grid-cols-4 py-7 lg:py-3 shadow-lg items-center  text-white  fixed bg-white/10 backdrop-blur-md border-b border-white/80">
+      <div className=" z-10 w-[100%]  lg:left-0 lg:top-0  lg:rounded-md  mx-auto px-5 lg:px-10 grid grid-cols-2 lg:grid-cols-4 py-7 lg:py-3 shadow-lg items-center  text-white  fixed bg-[#08123b50] backdrop-blur-md border-b border-white/80">
         <div>
           <Link to={"/"}>
             <p className="font-[Stylish] text-[20px] lg:text-[24px]">

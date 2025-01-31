@@ -129,20 +129,21 @@ const Team = () => {
                 {data.teamMember?.map((e) => {
                   return (
                     <>
-                      <div className="flex flex-col justify-center gap-5">
+                      <div className="flex flex-col justify-center gap-5 " >
                         <div className="flex font-[Fredoka]  flex-col items-start gap-5  bg-[#081F4D] border-white  border-2 py-5 lg:px-5 px-3 rounded-lg shadow-md shadow-white mx-auto">
                           <div className="flex flex-col gap-5 text-white">
-                            <p className="font-[Fredoka]  text-center font-bold text-xl lg:text-2xl  text-[#fbe072]">
+                            <p className="font-[Fredoka]  text-center font-bold text-lg lg:text-2xl text-nowrap text-[#fbe072] ">
                               DEPARTMENT OF COMPUTER SCIENCE
                             </p>
                             <div className=" flex flex-col items-center gap-0">
-                              <p className="font-[Poppins] font-medium text-base lg:text-lg text-center">
+                              <p className="font-[Poppins] font-medium text-base lg:text-lg text-center ">
                                 St. Joseph's College (Autonomous)
                               </p>
                             </div>
                             <p className="text-3xl text-center font-[Stylish] ">
                               WebSprint'25
                             </p>
+                            <p className=" w-full text-center text-[#fbe072]">05-02-2025</p>
                           </div>
                           <div className="grid grid-cols-1 justify-start items-center w-[90%] gap-3 mx-auto text-white">
                             <div className="grid grid-cols-2">
@@ -157,22 +158,13 @@ const Team = () => {
                               <p>College:</p>
                               <p className="text-wrap">{user.college}</p>
                             </div>
-                            <div className="flex flex-wrap justify-between">
-                              <p>Email:</p>
-                              <p className="flex flex-wrap">
-                                <span className="flex flex-wrap">
-                                  {e.email}
-                                </span>
-                              </p>
-                            </div>
                             <div className="grid grid-cols-2">
                               <p>Contact:</p>
                               {e.contact}
                             </div>
-                            <div className="grid grid-cols-2">
-                              <p>Department No.</p>
-                              {e.degree}
-                            </div>
+                          </div>
+                          <div className="w-full">
+                            <p className="text-[#fbe072] text-center">Valid till 5th February 2025</p>
                           </div>
                         </div>
                       </div>
