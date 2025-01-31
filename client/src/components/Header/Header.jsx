@@ -74,7 +74,7 @@ const Header = () => {
           </div>
         </div>
       </div> */}
-      <div className="pt-16 md:pt-20 lg:pt-24" id="home">
+      <div className="pt-16 md:pt-16 lg:pt-20" id="home">
   <div className="relative w-full h-screen bg-[url(https://ik.imagekit.io/HoneyJoe/Hackathon/army-robots-with-leader.jpg?updatedAt=1736657931131)] bg-cover bg-center">
     <div className="absolute inset-0 bg-black bg-opacity-50"></div>
     <div className="absolute inset-0 w-[95%] md:w-[80%] lg:w-[70%] mx-auto flex items-center justify-center">
