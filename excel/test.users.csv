@@ -1,15 +1,17 @@
-name,email,college,dept,contact,createdAt,teamId,teamMember[0].name,teamMember[1].name
-Admin,admin@mail.sjctni.edu,SJC,CS,6382503265,2025-01-22T14:52:55.082Z,WS-25100,,
-Alvin,alvinkishore28@gmail.com,Sacred Heart College Tirupattur ,M.Sc Cs,7904170125,2025-01-24T16:02:41.651Z,WS-25101,,
-MOHAMED SHAJID S,mmind9842@gmail.com,Sethu institute of technology ,CSE,9843775495,2025-01-29T14:30:14.027Z,WS-25104,K.mohammed sulthan,
-MUKUNDAN D,mukundan386@gmail.com,Sethu Institute of Technology,Computer Science and Engineering,6374188861,2025-01-30T11:07:52.059Z,WS-25105,Muthuraja L,Mukundan D
-Harish S,harishmdu17@gmail.com,SIT,CSE,8088423605,2025-01-30T11:09:13.315Z,WS-25106,,
-BHUVANESHWARAN S,bhuvaneshwaranscsus22056@nct.ac.in,NATIONAL COLLEGE,computer science ,7402186480,2025-01-30T11:28:35.002Z,WS-25107,BHUVANESHWARAN S,BHARATH V
-Gugan R,guganrv03@gmail.com,"Sacred Heart College, Titupattur",Msc Computer Science,9080472627,2025-01-30T13:37:13.428Z,WS-25108,,
-Dhana sakthivel.k,dhanasakthiveldhanasakthivel@gmail.com,Sethu institute of technology ,CSE,6382133944,2025-01-30T15:18:47.306Z,WS-25109,Dhana sakthivel.k,Asfak ahamed.A
-Mohamed Khalid,m.mohamedkhalid1000@gmail.com,Sethu Institute of Technology,IT,8778028415,2025-01-30T16:00:21.494Z,WS-25110,Mohammed ashif,Mohamed khalid
-M.Mohamed Faizal,mmohamedfaizal543@gmail.com,Sethu institute of technology ,Information technology ,9342082095,2025-01-30T16:14:27.822Z,WS-25111,M Mohamed Faizal ,A . Vijay 
-VIJAY A,silmbamvijay2004@gmail.com,Sethu institute of Technology,Btech IT,9514527365,2025-01-30T16:17:58.720Z,WS-25112,,
-Mohamed Aabith.S,mohamedabith05@gmail.com,Sethu Institute of Technology,Information technology ,8825621350,2025-01-30T16:31:58.563Z,WS-25113,Pandi sidhu.M,Mohamed Aabith.S
-Nakul,nakul10905@gmail.com,Saranathan college of engineering,Cse,8825714963,2025-01-30T17:58:51.939Z,WS-25114,,
-Agiless B B,agilessshobika@gmail.com,Saranathan College of Engineering,Computer Science and Engineering,9791957112,2025-01-30T18:01:24.473Z,WS-25115,Deepakram S,Agiless B B
+name,email,college,dept,contact,teamMember[0].name,teamMember[1].name,teamId
+Admin,admin@mail.sjctni.edu,SJC,CS,6382503265,Honey Jpe,,WS-25100
+Alvin,alvinkishore28@gmail.com,Sacred Heart College Tirupattur ,M.Sc Cs,7904170125,,,WS-25101
+MOHAMED SHAJID S,mmind9842@gmail.com,Sethu institute of technology ,CSE,9843775495,K.mohammed sulthan,,WS-25104
+MUKUNDAN D,mukundan386@gmail.com,Sethu Institute of Technology,Computer Science and Engineering,6374188861,Muthuraja L,Mukundan D,WS-25105
+Harish S,harishmdu17@gmail.com,SIT,CSE,8088423605,,,WS-25106
+BHUVANESHWARAN S,bhuvaneshwaranscsus22056@nct.ac.in,NATIONAL COLLEGE,computer science ,7402186480,BHUVANESHWARAN S,BHARATH V,WS-25107
+Gugan R,guganrv03@gmail.com,"Sacred Heart College, Titupattur",Msc Computer Science,9080472627,,,WS-25108
+Dhana sakthivel.k,dhanasakthiveldhanasakthivel@gmail.com,Sethu institute of technology ,CSE,6382133944,Dhana sakthivel.k,Asfak ahamed.A,WS-25109
+Mohamed Khalid,m.mohamedkhalid1000@gmail.com,Sethu Institute of Technology,IT,8778028415,Mohammed ashif,Mohamed khalid,WS-25110
+M.Mohamed Faizal,mmohamedfaizal543@gmail.com,Sethu institute of technology ,Information technology ,9342082095,M Mohamed Faizal ,A . Vijay ,WS-25111
+VIJAY A,silmbamvijay2004@gmail.com,Sethu institute of Technology,Btech IT,9514527365,,,WS-25112
+Mohamed Aabith.S,mohamedabith05@gmail.com,Sethu Institute of Technology,Information technology ,8825621350,Pandi sidhu.M,Mohamed Aabith.S,WS-25113
+Nakul,nakul10905@gmail.com,Saranathan college of engineering,Cse,8825714963,Nakul R,Alavandhan M A,WS-25114
+Agiless B B,agilessshobika@gmail.com,Saranathan College of Engineering,Computer Science and Engineering,9791957112,Agiless B B,Mirun Kaushik,WS-25115
+Vijayalaxmi.K,moorthynp05@gmail.com,St.joseph's college ,Bsc.artificial intelligence and machines ,9345532703,,,WS-25116
+Deepakram S,deepakramsekar@gmail.com,Saranathan College of Engineering,Computer Science and Engineering,8903214007,Deepakram S,Ajay Kumar S,WS-25117
