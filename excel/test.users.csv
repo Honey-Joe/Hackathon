@@ -1,22 +1,24 @@
-name,email,college,dept,contact,teamId,payment.image.contentType,teamMember[0].name,teamMember[1].name,teamMember[0].contact,teamMember[1].contact
-Admin,admin@mail.sjctni.edu,SJC,CS,6382503265,WS-25100,image/jpeg,,,,
-MOHAMED SHAJID S,mmind9842@gmail.com,Sethu institute of technology ,CSE,9843775495,WS-25104,image/jpeg,K.mohammed sulthan,MOHAMED SHAJID S,+91 80564 33104,9843775495
-MUKUNDAN D,mukundan386@gmail.com,Sethu Institute of Technology,Computer Science and Engineering,6374188861,WS-25105,image/jpeg,Muthuraja L,Mukundan D,9698469871,6374188861
-BHUVANESHWARAN S,bhuvaneshwaranscsus22056@nct.ac.in,NATIONAL COLLEGE,computer science ,7402186480,WS-25107,image/jpeg,BHUVANESHWARAN S,BHARATH V,7402186480,+91 93444 90965
-Dhana sakthivel.k,dhanasakthiveldhanasakthivel@gmail.com,Sethu institute of technology ,CSE,6382133944,WS-25109,image/jpeg,Dhana sakthivel.k,Asfak ahamed.A,6382133944,6382133944
-Mohamed Khalid,m.mohamedkhalid1000@gmail.com,Sethu Institute of Technology,IT,8778028415,WS-25110,,Mohammed ashif,Mohamed khalid,8220807021,8778028415
-M.Mohamed Faizal,mmohamedfaizal543@gmail.com,Sethu institute of technology ,Information technology ,9342082095,WS-25111,,M Mohamed Faizal ,A . Vijay ,9342082095,95145 27365
-Mohamed Aabith.S,mohamedabith05@gmail.com,Sethu Institute of Technology,Information technology ,8825621350,WS-25113,,Pandi sidhu.M,Mohamed Aabith.S,9524113792,8825621350
-Nakul,nakul10905@gmail.com,Saranathan college of engineering,Cse,8825714963,WS-25114,image/jpeg,Nakul R,Alavandhan M A,9360531785,8825714963
-Agiless B B,agilessshobika@gmail.com,Saranathan College of Engineering,Computer Science and Engineering,9791957112,WS-25115,image/jpeg,Agiless B B,Mirun Kaushik,9791957112,8610332639
-Vijayalaxmi.K,moorthynp05@gmail.com,St.joseph's college ,Bsc.artificial intelligence and machines ,9345532703,WS-25116,,Srinithi.B,Vijayalaxmi.K,9342884860,9345532703
-Deepakram S,deepakramsekar@gmail.com,Saranathan College of Engineering,Computer Science and Engineering,8903214007,WS-25117,image/jpeg,Deepakram S,Ajay Kumar S,8903214007,9790253959
-Bevina Sarlin V,sarlinvbevina@gmail.com,Holy Cross College ,Master of Computer Applications ,9363214869,WS-25118,image/jpeg,Bevina Sarlin V,Sharmila,9363214869,7339111091
-Arul Selva Jerina J,jerinajesuraj18@gmail.com,Holy Cross College,Computer Applications,9043850425,WS-25119,image/jpeg,Arul Selva Jerina J,Monika,9043850425,6380206514
-T.santhiya,santhiyasanthiyat23@gmail.com,Sethu institute of technology ,Computer science and engineering Internet of things ,8950945665,WS-25120,image/png,Lakshmi Priya.S,T.santhiya,9360382081,8950945665
-K.Samsammal,samsammal08@gmail.com,Sethu institute of technology ,CSE(IoT),9788869682,WS-25121,image/jpeg,M.NAVEEN,K.Samsammal,6374254621,9788869682
-K. Bharathidhasan,bharathidhasansit@gmail.com,Sethu Institute of technology,CSE(IOT) ,6382855875,WS-25122,image/jpeg,S. NARMATHA,K. BHARATHIDHASAN,9080266451,6382855875
-K.Harshni Sri,harshnisri31082005@gmail.com,Sethu Institute of technology ,CSE(Internet Of Things),9487704632,WS-25124,image/jpeg,Yogitha,K.Harshni Sri,7418733592,9487704632
-Ameer Hasan.N,ameernasurudeen@gmail.com,Sethu Institute of Technology ,Computer science and engineering Internet of things,9123533470,WS-25125,image/png,Aathi sri.M,Aathisri.M,9626498894,9626498894
-Mahesh M S K,maheshmsk2006@gmail.com,SRM Madurai College for Engineering and Technology ,Computer Science and Engineering ,8489453684,WS-25126,image/jpeg,Mahesh M S K,Harini M,+91 8489453684,+91 93453 04624
-Sujan,sujanprabakaran@gmail.com,St.Joseph's college,Electronics ,7845080600,WS-25127,,JOEL INFANT RAJ.S,,9952414991,
+name,college,dept,contact,teamId,payment.image.contentType,teamMember[0].name,teamMember[1].name
+Admin,SJC,CS,6382503265,WS-25100,image/jpeg,,
+MOHAMED SHAJID S,Sethu institute of technology ,CSE,9843775495,WS-25104,image/jpeg,K.mohammed sulthan,MOHAMED SHAJID S
+MUKUNDAN D,Sethu Institute of Technology,Computer Science and Engineering,6374188861,WS-25105,image/jpeg,Muthuraja L,Mukundan D
+BHUVANESHWARAN S,NATIONAL COLLEGE,computer science ,7402186480,WS-25107,image/jpeg,BHUVANESHWARAN S,BHARATH V
+Dhana sakthivel.k,Sethu institute of technology ,CSE,6382133944,WS-25109,image/jpeg,Dhana sakthivel.k,Asfak ahamed.A
+Mohamed Khalid,Sethu Institute of Technology,IT,8778028415,WS-25110,,Mohammed ashif,Mohamed khalid
+M.Mohamed Faizal,Sethu institute of technology ,Information technology ,9342082095,WS-25111,,M Mohamed Faizal ,A . Vijay 
+Mohamed Aabith.S,Sethu Institute of Technology,Information technology ,8825621350,WS-25113,,Pandi sidhu.M,Mohamed Aabith.S
+Nakul,Saranathan college of engineering,Cse,8825714963,WS-25114,image/jpeg,Nakul R,Alavandhan M A
+Agiless B B,Saranathan College of Engineering,Computer Science and Engineering,9791957112,WS-25115,image/jpeg,Agiless B B,Mirun Kaushik
+Vijayalaxmi.K,St.joseph's college ,Bsc.artificial intelligence and machines ,9345532703,WS-25116,,Srinithi.B,Vijayalaxmi.K
+Deepakram S,Saranathan College of Engineering,Computer Science and Engineering,8903214007,WS-25117,image/jpeg,Deepakram S,Ajay Kumar S
+Bevina Sarlin V,Holy Cross College ,Master of Computer Applications ,9363214869,WS-25118,image/jpeg,Bevina Sarlin V,Sharmila
+Arul Selva Jerina J,Holy Cross College,Computer Applications,9043850425,WS-25119,image/jpeg,Arul Selva Jerina J,Monika
+T.santhiya,Sethu institute of technology ,Computer science and engineering Internet of things ,8950945665,WS-25120,image/png,Lakshmi Priya.S,T.santhiya
+K.Samsammal,Sethu institute of technology ,CSE(IoT),9788869682,WS-25121,image/jpeg,M.NAVEEN,K.Samsammal
+K. Bharathidhasan,Sethu Institute of technology,CSE(IOT) ,6382855875,WS-25122,image/jpeg,S. NARMATHA,K. BHARATHIDHASAN
+K.Harshni Sri,Sethu Institute of technology ,CSE(Internet Of Things),9487704632,WS-25124,image/jpeg,Yogitha,K.Harshni Sri
+Ameer Hasan.N,Sethu Institute of Technology ,Computer science and engineering Internet of things,9123533470,WS-25125,image/png,Aathi sri.M,Aathisri.M
+Mahesh M S K,SRM Madurai College for Engineering and Technology ,Computer Science and Engineering ,8489453684,WS-25126,image/jpeg,Mahesh M S K,Harini M
+Sujan,St.Joseph's college,Electronics ,7845080600,WS-25127,,JOEL INFANT RAJ.S,
+barath varam,sit,cse,6374342725,WS-25128,,,
+J DHIVYA DHASRHINI,CAUVERY COLLEGE FOR WOMEN ,BCA,9600475415,WS-25129,,,
