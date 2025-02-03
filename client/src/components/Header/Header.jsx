@@ -78,7 +78,7 @@ const Header = () => {
         <div className="relative w-full h-screen bg-[url(https://ik.imagekit.io/HoneyJoe/Hackathon/army-robots-with-leader.jpg?updatedAt=1736657931131)] bg-cover bg-center">
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
           <div className="absolute inset-0 w-[95%] md:w-[80%] lg:w-[70%] mx-auto flex items-center justify-center">
-            <div className="text-white font-bold text-center flex flex-col items-center py-10 md:py-16 lg:py-20 gap-4">
+            <div className="text-white font-bold text-center flex flex-col items-center py-10 md:py-16 lg:py-20 gap-3">
               <p className="font-[Fredoka] text-[20px] md:text-[28px] lg:text-[36px] text-center font-bold text-[#fbe072]">
                 DEPARTMENT OF COMPUTER SCIENCE
               </p>
@@ -113,18 +113,20 @@ const Header = () => {
                   <CountdownTimer />
                 </div>
                 <div className="flex justify-center mt-6 lg:mt-0">
-                  <Link to={"/register"}>
+                  <Link to={"/login"}>
                     <a
                       href="#_"
                       className="relative border inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 text-[16px] md:text-[18px] font-bold text-white rounded-md shadow-[0px_0px_20px_8px_#000] group"
                     >
                       <span className="absolute inset-0 w-full h-full transition duration-300 ease-out opacity-0 bg-gradient-to-br from-pink-600 via-purple-700 to-blue-400 group-hover:opacity-100"></span>
                       <span className="relative font-[Stylish] text-[16px] md:text-[20px]">
-                        Register Now
+                        Login
                       </span>
                     </a>
                   </Link>
                 </div>
+                <p>The Registration was closed !</p>
+                <p>For any other clarification contact registration team</p>
               </div>
             </div>
           </div>
