@@ -126,7 +126,7 @@ const Header = () => {
                   </Link>
                 </div>
                 <p>The Registration was closed !</p>
-                <p>For any other clarification contact registration team</p>
+                <p><a href="tel:6382503265" className="text-xl underline">Click here to contact registration team </a></p>
               </div>
             </div>
           </div>
