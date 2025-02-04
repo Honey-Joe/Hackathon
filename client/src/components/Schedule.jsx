@@ -10,7 +10,7 @@ const Schedule = () => {
                 <div className=' flex items-center gap-5 lg:flex-nowrap flex-nowrap py-2 lg:w-[500px]'>
                     <div className='border h-[80px] w-[80px] md:w-[110px] md:h-[110px] rounded-full flex justify-center shadow-md shadow-blue-500' data-aos="fade-right" data-aos-delay="200">
                         <div className=' flex flex-col justify-center items-center' >
-                            <p className=' text-white font-[Fredoka] md:text-4xl text-xl font-bold shadow-lg'>9:30</p>
+                            <p className=' text-white font-[Fredoka] md:text-4xl text-xl font-bold shadow-lg'>9:00</p>
                             <p className=' text-white font-[Fredoka] md:text-2xl text-xl font-bold'>AM</p>
                         </div>
                     </div>
@@ -23,7 +23,7 @@ const Schedule = () => {
                 <div className=' flex items-center gap-5 lg:flex-nowrap flex-nowrap py-2 lg:w-[500px]'>
                     <div className=' border h-[80px] w-[80px] md:w-[110px] md:h-[110px] rounded-full flex justify-center shadow-md shadow-blue-500' data-aos="fade-right" data-aos-delay="200">
                         <div className=' flex flex-col justify-center items-center' >
-                            <p className=' text-white font-[Fredoka] md:text-4xl text-xl font-bold shadow-lg'>9:45</p>
+                            <p className=' text-white font-[Fredoka] md:text-4xl text-xl font-bold shadow-lg'>9:30</p>
                             <p className=' text-white font-[Fredoka] md:text-2xl text-xl font-bold'>AM</p>
                         </div>
                     </div>

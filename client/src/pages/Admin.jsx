@@ -29,7 +29,6 @@ const Admin = () => {
         },
       });
       setData(res.data);
-      console.log(res.data);
     } catch (error) {
       setError(error.response?.data?.message);
     } finally {
@@ -79,11 +78,11 @@ const Admin = () => {
                                 <p>Team ID:</p>
                                 {e.teamId}
                               </div>
-                              <div className="flex justify-evenly gap-5 font-[Fredoka]">
+                              <div className="flex justify-between gap-5 font-[Fredoka]">
                                 <p>Name:</p>
                                 {e.name}
                               </div>
-                              <div className="flex justify-evenly gap-5">
+                              <div className="flex justify-between flex-wrap gap-5">
                                 <p>Email:</p>
                                 {e.email}
                               </div>
