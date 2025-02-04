@@ -1,27 +1,28 @@
-name,college,teamMember[0].name,teamMember[1].name,teamMember[0].email,teamMember[1].email,teamId
-MOHAMED SHAJID S,Sethu institute of technology ,K.mohammed sulthan,MOHAMED SHAJID S,sulthan1869@gmail.com,mmind9842@gmail.com,WS-25104
-BHUVANESHWARAN S,NATIONAL COLLEGE,BHUVANESHWARAN S,BHARATH V,bhuvanesh020405@gmail.com,bharathp0124@gmail.com,WS-25107
-Dhana sakthivel.k,Sethu institute of technology ,Dhana sakthivel.k,Asfak ahamed.A,dhanasakthiveldhanasakthivel@gmail.com,asfak18102004@gmail.com,WS-25109
-Nakul,Saranathan college of engineering,Nakul R,Alavandhan M A,nakul10905@gmail.com,alavandhanalu1@gmail.com,WS-25114
-Agiless B B,Saranathan College of Engineering,Agiless B B,Mirun Kaushik,agilessshobika@gmail.com,10425mirunkaushik@gmail.com,WS-25115
-Vijayalaxmi.K,St.joseph's college ,Srinithi.B,Vijayalaxmi.K,srinithibalakrishnan311@gmail.com,moorthynp05@gmail.com,WS-25116
-Deepakram S,Saranathan College of Engineering,Deepakram S,Ajay Kumar S,deepakramsekar@gmail.com,ajaykumar.s242006@gmail.com,WS-25117
-Bevina Sarlin V,Holy Cross College ,Bevina Sarlin V,Sharmila,sarlinvbevina@gmail.com,sharmilasaravanan2526@gmail.com,WS-25118
-Arul Selva Jerina J,Holy Cross College,Arul Selva Jerina J,Monika,jerinajesuraj18@gmail.com,monikasenthilvelan@gmail.com,WS-25119
-T.santhiya,Sethu institute of technology ,Lakshmi Priya.S,T.santhiya,lpriya1621@gmail.com,santhiyasanthiyat23@gmail.com,WS-25120
-K.Samsammal,Sethu institute of technology ,M.NAVEEN,K.Samsammal,naveenmuthu859@gmail.com,samsammal08@gmail.com,WS-25121
-K. Bharathidhasan,Sethu Institute of technology,S. NARMATHA,K. BHARATHIDHASAN,n3738541@gmail.com,bharathidhasansit@gmail.com,WS-25122
-K.Harshni Sri,Sethu Institute of technology ,Yogitha,K.Harshni Sri,Yogithay56@gmail.com,harshnisri31082005@gmail.com,WS-25124
-Ameer Hasan.N,Sethu Institute of Technology ,Aathi sri.M,Ameer Hasan.N,sriaathi27@gmail.com,ameernasurudeen@gmail.com,WS-25125
-Mahesh M S K,SRM Madurai College for Engineering and Technology ,Mahesh M S K,Harini M,maheshmsk2006@gmail.com,harinimurugesan14@gmail.com,WS-25126
-THARUN RAJ K N ,Sethu institute of technology ,SHRIMAN S,THARUN RAJ K N ,shrim320@gmail.com,tharunraj963@gmail.com,WS-25130
-B.Jaya karthick,sethu institute of technology ,B.karthick murugan,jaya karthick.B,kirthickkarthick118@gmail.com,jayakarthick2509@gmail.com,WS-25132
-Seenivasan MJ,Sethu institute of technology ,Seenivasan mj,Joe Venish ,joevenish46@gmail.com,joevenish46@gmail.com,WS-25133
-Saravanan K S,Sethu institute of technology ,C.K.Shiyam Ganesh,K.S.Saravanan,shiyamganesh8032@gmail.com,kssaravanan526@gmail.com,WS-25134
-R Siva Balan,Sethu institute of technology ,A Sugantha mukilan ,R Siva Balan ,Suganthamukilan@gmail.com,smileesiva417@gmail.com,WS-25135
-Joe Rakesh A ,"St. Joseph's College, Trichy ",Mariya Efron Y,Joe Rakesh A,mariyaefrony@gmail.com,rakeshjoe52@gmail.com,WS-25139
-Noel Sebu,St.josephs college Trichy,Anto benedict C,Noel Sebu,antobenedict7010@gmail.com,noelsebu111@gmail.com,WS-25140
-Sree Lakshmi M,Sethu Institute of Technology ,Sree Lakshmi M,Varsha S,sreelakshmimuthukrishnan@gmail.com,varshasaranya208@gmail.com,WS-25141
-Thomas Robinson ,St.joseph's college ,John Irudaya Raj AJ,Thomas Robinson A ,johnirudayaraj2617@gmail.com,thomas78robinson@gmail.com,WS-25143
-Bastin walter,St.joseph college ,Bastin Walter ,Rishik S,jdbastinms@gmail.com,rishiksimon2002@gmail.com,WS-25144
-Admin,St. Joseph's College,,,,,WS-25145
+name,email,college,teamMember[0].name,teamMember[1].name,teamMember[0].email,teamMember[1].email,teamId
+MOHAMED SHAJID S,mmind9842@gmail.com,Sethu institute of technology ,K.mohammed sulthan,MOHAMED SHAJID S,sulthan1869@gmail.com,mmind9842@gmail.com,WS-25104
+BHUVANESHWARAN S,bhuvaneshwaranscsus22056@nct.ac.in,NATIONAL COLLEGE,BHUVANESHWARAN S,BHARATH V,bhuvanesh020405@gmail.com,bharathp0124@gmail.com,WS-25107
+Dhana sakthivel.k,dhanasakthiveldhanasakthivel@gmail.com,Sethu institute of technology ,Dhana sakthivel.k,Asfak ahamed.A,dhanasakthiveldhanasakthivel@gmail.com,asfak18102004@gmail.com,WS-25109
+Nakul,nakul10905@gmail.com,Saranathan college of engineering,Nakul R,Alavandhan M A,nakul10905@gmail.com,alavandhanalu1@gmail.com,WS-25114
+Agiless B B,agilessshobika@gmail.com,Saranathan College of Engineering,Agiless B B,Mirun Kaushik,agilessshobika@gmail.com,10425mirunkaushik@gmail.com,WS-25115
+Deepakram S,deepakramsekar@gmail.com,Saranathan College of Engineering,Deepakram S,Ajay Kumar S,deepakramsekar@gmail.com,ajaykumar.s242006@gmail.com,WS-25117
+Bevina Sarlin V,sarlinvbevina@gmail.com,Holy Cross College ,Bevina Sarlin V,Sharmila,sarlinvbevina@gmail.com,sharmilasaravanan2526@gmail.com,WS-25118
+Arul Selva Jerina J,jerinajesuraj18@gmail.com,Holy Cross College,Arul Selva Jerina J,Monika,jerinajesuraj18@gmail.com,monikasenthilvelan@gmail.com,WS-25119
+T.santhiya,santhiyasanthiyat23@gmail.com,Sethu institute of technology ,Lakshmi Priya.S,T.santhiya,lpriya1621@gmail.com,santhiyasanthiyat23@gmail.com,WS-25120
+K.Samsammal,samsammal08@gmail.com,Sethu institute of technology ,M.NAVEEN,K.Samsammal,naveenmuthu859@gmail.com,samsammal08@gmail.com,WS-25121
+K. Bharathidhasan,bharathidhasansit@gmail.com,Sethu Institute of technology,S. NARMATHA,K. BHARATHIDHASAN,n3738541@gmail.com,bharathidhasansit@gmail.com,WS-25122
+K.Harshni Sri,harshnisri31082005@gmail.com,Sethu Institute of technology ,Yogitha,K.Harshni Sri,Yogithay56@gmail.com,harshnisri31082005@gmail.com,WS-25124
+Ameer Hasan.N,ameernasurudeen@gmail.com,Sethu Institute of Technology ,Aathi sri.M,Ameer Hasan.N,sriaathi27@gmail.com,ameernasurudeen@gmail.com,WS-25125
+Mahesh M S K,maheshmsk2006@gmail.com,SRM Madurai College for Engineering and Technology ,Mahesh M S K,Harini M,maheshmsk2006@gmail.com,harinimurugesan14@gmail.com,WS-25126
+THARUN RAJ K N ,tharunraj963@gmail.com,Sethu institute of technology ,SHRIMAN S,THARUN RAJ K N ,shrim320@gmail.com,tharunraj963@gmail.com,WS-25130
+B.Jaya karthick,jayakarthick2509@gmail.com,sethu institute of technology ,B.karthick murugan,jaya karthick.B,kirthickkarthick118@gmail.com,jayakarthick2509@gmail.com,WS-25132
+Seenivasan MJ,joevenish46@gmail.com,Sethu institute of technology ,Seenivasan mj,Joe Venish ,joevenish46@gmail.com,joevenish46@gmail.com,WS-25133
+Saravanan K S,kssaravanan526@gmail.com,Sethu institute of technology ,C.K.Shiyam Ganesh,K.S.Saravanan,shiyamganesh8032@gmail.com,kssaravanan526@gmail.com,WS-25134
+R Siva Balan,smileesiva417@gmail.com,Sethu institute of technology ,A Sugantha mukilan ,R Siva Balan ,Suganthamukilan@gmail.com,smileesiva417@gmail.com,WS-25135
+Joe Rakesh A ,rakeshjoe52@gmail.com,"St. Joseph's College, Trichy ",,Joe Rakesh A,mariyaefrony@gmail.com,rakeshjoe52@gmail.com,WS-25139
+Noel Sebu,noelsebu111@gmail.com,St.josephs college Trichy,Anto benedict C,Noel Sebu,antobenedict7010@gmail.com,noelsebu111@gmail.com,WS-25140
+Sree Lakshmi M,sreelakshmimuthukrishnan@gmail.com,Sethu Institute of Technology ,Sree Lakshmi M,Varsha S,sreelakshmimuthukrishnan@gmail.com,varshasaranya208@gmail.com,WS-25141
+Thomas Robinson ,thomas78robinson@gmail.com,St.joseph's college ,John Irudaya Raj AJ,Thomas Robinson A ,johnirudayaraj2617@gmail.com,thomas78robinson@gmail.com,WS-25143
+Bastin walter,jdbastinms@gmail.com,St.joseph college ,Bastin Walter ,Rishik S,jdbastinms@gmail.com,rishiksimon2002@gmail.com,WS-25144
+Admin,admin@mail.sjctni.edu,St. Joseph's College,,,,,WS-25145
+Valentine Rofina,valentinerofina32@gmail.com,Sethu Institute of Technology ,Valentine Rofina,,valentinerofina32@gmail.com,,WS-25146
+Rithitha M. ,rithitha2105@gmail.com,Sethu Institute of Technology,Rithitha M. ,Reema Fathima N.,rithitha2105@gmail.com,jarinebose@gmail.com,WS-25147
