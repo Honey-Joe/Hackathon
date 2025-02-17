@@ -1,6 +1,5 @@
 const express = require("express");
 const paymentRoutes = express.Router();
-const AsyncHandler = require("express-async-handler");
 const User = require("../models/User");
 const multer = require("multer")
 const storage = multer.memoryStorage(); // Store image in memory
@@ -9,7 +8,7 @@ const upload = multer({ storage });
 paymentRoutes.put('/:id', upload.single('paymentImage'), async (req, res) => {
     try {
       const userId = req.params.id;
-  
+   
       // Find the user by ID
       const user = await User.findById(userId);
       if (!user) {

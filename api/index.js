@@ -8,9 +8,7 @@ const paymentRoutes = require("./routes/Payment");
 const app = express();
 dotenv.config();
 const cors = require('cors');
-app.use(cors()); // Allow all origins (for development)
-
-  
+app.use(cors()); // Allow all origins (for development)  
 app.use(bodyParser.json())
 app.use(express.json());
 app.get("/",(req,res)=>{
